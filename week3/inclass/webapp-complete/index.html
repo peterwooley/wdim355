@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>OOP Login System</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
+
+		<script type="text/javascript" src="scripts/webapp.js"></script>
+		<script type="text/javascript">
+			$(function() { new WebApp($('#container')); });
+		</script>
+		<link rel="stylesheet" type="text/css" media="screen" href="styles/screen.css" />
+	</head>
+	<body>
+		<h1>Twittr - Twitter without the <em>e</em>!</h1>
+		<div id="container">
+			<div class="login hide">
+				<h2>Login</h2>
+				<form action="/login" method="post" class="login_form">
+					
+					<label for="login_username">Username</label>
+					<input type="text" id="login_username" class="login_username" />
+					<br />
+					
+					<label for="login_password">Password</label>
+					<input type="password" id="login_password" class="login_password" />
+					<br />		
+					
+					<button type="submit" class="login_submit">Login</button>
+				</form>				
+			</div>
+			<div class="dashboard hide">
+				<h2>Dashboard</h2>
+				<form action="/post" method="post" class="user_form">
+					<textarea id="user_message"></textarea>
+					<button type="submit" id="user_submit">Send your message</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
