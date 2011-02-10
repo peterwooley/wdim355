@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Deferred</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/twitterapp.js"></script>
+		<script type="text/javascript">		
+			$(function() {
+				// These are taken from http://intridea.com/2011/2/8/fun-with-jquery-deferred
+			
+				// Old Way
+				setTimeout(function() {
+					console.log("setTimeout fired!");
+				}, 3000);
+				
+				// jQuery Deferred Way!
+				$.wait = function(time) {
+				  var dfd = $.Deferred()
+				  setTimeout(function() {
+					dfd.resolve();
+				  }, time);
+				  return dfd;
+				}
+				
+				$.wait(3000).then(function() {
+				  console.log("$.wait fired!");
+				});
+				
+				
+				
+				// jQuery Deferred Twitter Search
+				Twitter = {
+				  search:function(query) {
+					var dfr = $.Deferred();
+					$.ajax({
+					 url:"http://search.twitter.com/search.json",
+					 data:{q:query},
+					 dataType:'jsonp',
+					 success:dfr.resolve
+					});
+					return dfr;
+				  }
+				}
+
+				/*Twitter.search('wdim355').then(function(data) {
+				  console.log(data.results[0].text);
+				});*/
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

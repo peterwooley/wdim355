@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WDIM355 Client-Side Scripting, Week 5</title>
+		<script src="scripts/highlight/highlight.js"></script>
+		<script>
+			hljs.initHighlightingOnLoad('html', 'javascript');
+		</script>
+		<link rel="stylesheet" href="styles/highlight.css" />
+		<link rel="stylesheet" href="styles/common.css" media="all" />
+		<link rel="stylesheet" href="styles/projection.css" media="projection" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>WDIM355 Client-Side Scripting</h1>
+			<p class="tagline">The jQuery Class, Week 5</p>
+		</div>
+		
+		<h2>Weekly Happenings</h2>
+		<ul>
+			<li><a href="http://www.palm.com/us/products/pads/touchpad/index.html">HP TouchPad</a> announced (with no price or release date!).</li>
+			<li>Gawker redesigned their sites, and <a href="http://www.isolani.co.uk/blog/javascript/BreakingTheWebWithHashBangs">some people think it's ruining the web</a>.</li>
+			<li><a href="http://en.wikipedia.org/wiki/Light_Peak">Light Peak</a> is 10Gbps optical cable that Intel demoed in 2009.</li>
+			<li>Anything else?!</li>
+		</ul>
+		
+		<h2>Midterm Projects!</h2>
+		<ul>
+			<li>Turn in your homework to <kbd>S:\Data\wdim355\week4\homework</kbd> named like <code>lastnameFirstname_mockup.zip</code>.</li>
+			<li>We'll look at <em>someone's</em> implementation.</li>
+		</ul>
+		
+		<h2>Example of jQuery's Deferred Object</h2>
+		<ul>
+			<li>Michael Bleigh of Intridea <a href="http://intridea.com/2011/2/8/fun-with-jquery-deferred">wrote up a great example of how to use the jQuery Deferred Object</a>.</li>
+			<li>Let's play with it in the <a href="inclass/deferred.html">inclass/deferred.html</a>.</li>
+		</ul>
+		
+		<h2>My Debugging Process</h2>
+		<p>Problem: My code isn't running!</p>
+		<ol>
+			<li>Check for errors in Firefox's Error Console (Tools &raquo; Error Console)
+				<ul>
+					<li>Clear the console.</li>
+					<li>Refresh the page with the broken JavaScript.</li>
+					<li>Observe the code not working.</li>
+					<li>Switch back to the Error Console and check for errors.</li>
+					<li>If there's an error listed, find it, fix it, check if that fixed it.</li>
+				</ul>
+			</li>
+			<li>If there are no errors, I pop open Firebug's Script Panel.
+				<ul>
+					<li>Enable the Script Panel if it's not already enabled.</li>
+					<li>Set a breakpoint on a line I would expect to execute.</li>
+					<li>Refresh the page or cause the event that should trigger the code.</li>
+					<li>If the breakpoint is triggered, I step through the code until it breaks, adding new breakpoints if necessary.</li>
+					<li>If the breakpoint is not triggered, I add a new breakpoint earlier and earlier in the execution cycle, even back to the first line in the first &lt;script /&gt;.</li>
+				</ul>
+			</li>
+			<li>Failing the first two (which is really, really rare), I check to ensure that JavaScript is enabled in my browser, restart the browser, and pray to the JavaScript gods.</li>
+			<li>If all of those fail, I add an alert() to the very first line of my script and if it fires, I slowly move it down, line by line, until I find the broken line.</li>
+		</ol>
+		
+		<h2>Homework?</h2>
+		<ul>
+			<li>Heck no! Go have some fun!</li>
+		</ul>
+		
+	</body>
+</html>
