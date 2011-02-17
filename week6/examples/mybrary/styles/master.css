@@ -1,0 +1,51 @@
+/* App: Mybrary
+ * Version: 1.0
+ * Author: Peter Wooley <peter@peterwooley.com>
+ * Date: 11/23/2010
+ */
+ 
+ 
+/* jQuery Mobile Overrides */
+.ui-header .ui-controlgroup {
+	margin-top:.3em;
+	margin-bottom:.4em;
+}
+
+
+.mybrary-header-actions {
+	margin-left:10px;
+}
+	.mybrary-header-actions .ui-btn-text {
+		display:inline-block;
+		height:14px;
+	}
+	
+	.mybrary-header-actions .ui-btn-inner {
+		padding-left:19px !important;
+	}
+ 
+.mybrary-ui-aside {
+	float:right;
+	margin-right:10px;
+}
+
+.mybrary-list li .ui-btn-inner {
+	padding-right:33px;
+}
+
+.mybrary-due-date {
+	font-weight:normal;
+}
+
+.mybrary-now {
+	color:#444;
+	font-weight:bold;
+}
+
+.mybrary-late {
+	color:#900;
+}
+
+.mybrary-early {
+	color:#999;
+}

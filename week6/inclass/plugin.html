@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Plugin</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>	
+		<script>
+			// Create our jQuery Plugin
+			(function($){
+			  $.fn.lockDimensions = function(type) {  
+				this.each(function() {
+				  var $this = $(this);
+
+				  if (!type || type == 'width') {
+					$this.width($this.width());
+				  }
+				  if (!type || type == 'height') {
+					$this.height($this.height());
+				  }
+				});
+				
+				return this;
+			  };
+			}(jQuery));
+
+			// Our Nifty jQuery Wait function
+			$.wait = function(time) {
+			  var dfd = $.Deferred()
+			  setTimeout(function() {
+				dfd.resolve();
+			  }, time);
+			  return dfd;
+			}
+
+			// Use our jQuery Plugin
+			$(function() {
+				$.wait(3000).then(function() {
+					$("#footer").lockDimensions().css('background', 'red');
+				});
+			});
+		</script>
+		<style>
+			p { background: pink; }
+			ol { background: green; }
+			ul { background: orange; }
+			#footer { background: lightblue; }
+		</style>
+	</head>
+	<body>
+		<p>Testing.</p>
+		<ol id="ordered">
+		    <li>Ordered</li>
+		    <li>Ordered</li>
+		    <li>Ordered</li>
+		    <li>Ordered</li>
+		    <li>Ordered</li>
+		    <li>Ordered</li>
+		</ol>
+		<ul id="unordered">
+		    <li>
+		        <a href="">Clicky</a>
+		    </li>
+		    <li>
+		        <a href="">Clicky</a>
+		    </li>
+		    <li>
+		        <a href="">Clicky</a>
+		    </li>
+		</ul>
+		<div id="footer">Feet!</div>
+	</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<!-- Change this if you want to allow scaling -->
+    <meta name="viewport" content="width=default-width; user-scalable=no" />
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	 <meta name="apple-mobile-web-app-capable" content="yes">
+	
+    <title>Mybrary</title>
+
+	<link rel="stylesheet" href="styles/master.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+	
+	<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+	<script>
+		$(function() {
+			/*$("#home, #item").live('pageshow', function(event, ui) {
+				alert("This page was just hidden: " + ui.prevPage.attr('id'));
+				console.log(ui);
+			}).live("pagehide", function(event, ui) {
+				alert("This page is being shown: " + ui.nextPage.attr('id'));
+				console.log(ui);
+			});*/
+		});
+	</script>
+  </head>
+  <body>
+  
+  <div data-role="page" data-theme="a" id="home">
+
+	<div data-role="header" class="ui-grid-a" data-position="fixed">
+		<div class="ui-block-a" data-role="controlgroup" data-type="horizontal">
+			<div class="mybrary-header-actions">
+				<a href="#" data-role="button" data-icon="plus"></a>
+				<a href="#" data-role="button" data-icon="search"></a>
+			</div>
+		</div>
+		
+		<div class="ui-block-b" data-role="controlgroup" data-type="horizontal">
+			<div class="mybrary-ui-aside">
+				<a href="#" data-role="button">Lend</a>
+				<a href="#" data-role="button">Borrow</a>
+			</div>
+		</div>
+
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<ul data-role="listview" class="mybrary-list">
+			<li data-role="list-divider">Lent</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">MacBook Pro</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-late">
+						Last Tuesday
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Badger Name Tag</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-now">
+						Today
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">The Pragmatic Programmer</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-early">
+						Tommorrow
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Windows Phone 7 Dev Phone</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-early">
+						Next Monday
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Headset</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-early">
+						2 Weeks
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Mr. Potato Head</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-early">
+						Jan 1
+					</div>
+				</div>
+			</li>
+			
+			<li data-role="list-divider">Borrowed</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Broom</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-late">
+						Yesterday
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Spatula</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-early">
+						Tomorrow
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Blue Jeans</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-early">
+						Monday
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Broom</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-late">
+						Yesterday
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Spatula</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-early">
+						Tomorrow
+					</div>
+				</div>
+			</li>
+			<li role="option" class="ui-grid-a">
+				<a href="#item" class="ui-block-a ui-btn-text">Blue Jeans</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-early">
+						Monday
+					</div>
+				</div>
+			</li>
+			
+		</ul>
+	</div><!-- /content -->
+  </div><!-- /page -->
+
+  <div id="item" data-role="page">
+	<div data-role="header">
+		<h1>Badger Name Tag</h1>
+		<a href="#edit" class="ui-btn-right">Edit</a>
+	</div>
+	
+	<div data-role="content" data-theme="c">
+		<a href="#return" data-role="button">Return</a>
+		<a href="#extend" data-role="button">Extend</a>
+		
+		<ul class="mybrary-list" data-role="listview" data-inset="true">
+			<li data-role="list-divider">Currently</li>
+			<li class="ui-grid-a">
+				<a href="#current" class="ui-block-a ui-btn-text">Lent to Steve S.</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-now">
+						Today
+					</div>
+				</div>
+			</li>
+		</ul>
+		
+		<ul class="mybrary-list" data-role="listview" data-inset="true">
+			<li data-role="list-divider">History</li>
+			<li class="ui-grid-a">
+				<a href="#current" class="ui-block-a ui-btn-text">Lent to Steve S.</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-now">
+						On Time
+					</div>
+				</div>
+			</li>
+			<li class="ui-grid-a">
+				<a href="#current" class="ui-block-a ui-btn-text">Lent to Maggie B.</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-late">
+						Late
+					</div>
+				</div>
+			</li>
+			<li class="ui-grid-a">
+				<a href="#current" class="ui-block-a ui-btn-text">Lent to Steve S.</a>
+				<div class="ui-block-b">
+					<div class="mybrary-ui-aside mybrary-due-date mybrary-early">
+						Early
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+  </div>
+  </body>
+</html>
