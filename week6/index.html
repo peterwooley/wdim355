@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>WDIM355 Client-Side Scripting, Week 5</title>
+		<title>WDIM355 Client-Side Scripting, Week 6</title>
 		<script src="scripts/highlight/highlight.js"></script>
 		<script>
 			hljs.initHighlightingOnLoad('html', 'javascript');
@@ -14,7 +14,7 @@
 	<body>
 		<div id="header">
 			<h1>WDIM355 Client-Side Scripting</h1>
-			<p class="tagline">The jQuery Class, Week 5</p>
+			<p class="tagline">The jQuery Class, Week 6</p>
 		</div>
 		
 		<h2>Weekly Happenings</h2>
@@ -27,36 +27,42 @@
 		<ul>
 			<li>When working with another library that makes use of the <code>$</code> function, you can have jQuery run in <a href="http://api.jquery.com/jQuery.noConflict/">No Conflict mode</a>, so it will reliquish control of the <code>$</code> function back to the other library:
 				<pre><code class="javascript">jQuery.noConflict();
-// Now, $() is no longer the jQuery function, but you can still access jQuery using the jQuery variable: jQuery("#selector")
+// Now, $() is no longer the jQuery function, but you can still access jQuery
+// using the jQuery variable: jQuery("#selector")
 
-// In the case where you have multiple jQuery versions on the same page, you can have the second version of jQuery relinquish control of the jQuery variable to the first version and assign the second version to a custom variable
-var jQueryTwo = jQuery.noConflict(true);
+// In the case where you have multiple jQuery versions on the same page, you
+// can have the 2nd version of jQuery relinquish control of the jQuery
+// variable to the 1st version and assign the 2nd version to a custom variable.
+var jQueryTwo = jQuery.noConflict(true);</code></pre>
+			</li>
+		</ul>
 
 		<h2>My Development Environments</h2>
 		<ul>
 			<li>For text editors, I use:
 				<ul>
-					<li>Eclipse</li>
-					<li>Vim (GVim, MacVim)</li>
-					<li>Notepad++</li>
-					<li>XCode</li>
+					<li><a href="http://eclipse.org">Eclipse</a></li>
+					<li><a href="http://www.vim.org/">Vim</a> (<a href="http://www.vim.org/">GVim</a>, <a href="http://code.google.com/p/macvim/">MacVim</a>)</li>
+					<li><a href="http://notepad-plus-plus.org/">Notepad++</a></li>
+					<li><a href="http://developer.apple.com/technologies/tools/xcode.html">XCode</a></li>
 				</ul>
 			</li>
 			<li>I still develop in Firefox, but am moving to Chrome. Some of my co-workers still use IE8 as their primarly development Browser&mdash;this kills me.</li>
 			<li>I test in IE7-IE9; Firefox 3.6 &amp; 4.0; Chrome Dev &amp; Chromium; Safari 5. Occasionally, I open up Lynx to see how pages render.</li>
 			<li>At work, SVN is the only supported Version Control System, though I use git for my own small projects at both work and home. I admit that I still suck at git, but Git Immersion helps.</li>
-			<li>The languages I use most often are JavaScript (browser-based as well as in node.js), Java, and Objective-C. For me, Vim is great for JavaScript and general Web Development, Notepad++ is great for presenting, Eclipse is great for <em>ginormous</em> projects (especially Java projects), and XCode is usable because of its integration with Interface Builder.</li>
-			<li>Input-wise, I use the Logitech Wave Combo. When I moved to McAfee, it was one of my requirements before I agreed to take the job. It's the first keyboard and mouse set I've ever truly enjoyed using.</li>
+		</ul>
+		
+		<h2>More on My Development Environment</h2>
+		<ul>
+			<li>The languages I use most often are JavaScript (browser-based as well as server-side in node.js), Java, and Objective-C. For me, Vim is great for JavaScript and general Web Development, Notepad++ is great for presenting, Eclipse is great for <em>ginormous</em> projects (especially Java projects), and XCode is usable because of its integration with Interface Builder.</li>
+			<li>Input-wise, I use the <a href="http://www.logitech.com/en-us/keyboards/keyboard-mice-combos/devices/7306">Logitech Wave Combo</a>. When I moved to McAfee, it was one of my requirements before I agreed to take the job. It's the first keyboard and mouse set I've ever truly enjoyed using.</li>
 			<li>Monitor-wise, I appreciate two monitors. Since 2007, to do anything non-trivial, I've designed and developed on a box with dual screens.I'll do anything I can do to make sure the screens are the exact same model.</li>
 			<li>OS-wise, I enjoy OS X more than Windows, though Windows 7 is delightful. I've yet to purchase a Mac Desktop, though I will always, <em>always</em> purchase Mac Laptops and only Mac Laptops.</li>
 		</ul>
 
-		<h2>My Development Environments, Illustrated</h2>
+		<h2>My Development Environment, Illustrated</h2>
 		<ul>
-			<li>Home</li>
-			<li>Work</li>
-			<li>Mobile</li>
-			<li>iPad</li>
+			<li>Here's <a href="assets/env_office.jpg">my current screen setup at work</a>.</li>
 		</ul>
 
 		<h2>My Debugging Process</h2>
@@ -112,7 +118,7 @@ var jQueryTwo = jQuery.noConflict(true);
 		<h2>Mobile Development with jQuery</h2>
 		<ul>
 			<li>Mobile Web Development is a bit of a hot topic.</li>
-			<li>There are three front-runners: Sencha Touch, jQuery Mobile and Wink Toolkit.</li>
+			<li>There are three front-runners: <a href="http://www.sencha.com/products/touch/">Sencha Touch</a>, <a href="http://jquerymobile.com/">jQuery Mobile</a> and <a href="http://www.winktoolkit.org/">Wink Toolkit</a>.</li>
 			<li>jQuery Mobile is the most appropriate for us, as it's being built by many folks that build jQuery. I've <a href="examples/mybrary/index.html">created a demo for us to play with</a>.</li>
 			<li>Sencha Touch is also important. Sencha Touch 1.0 is now free (released under the GPL) or availble for purchase (so it can be used for non-GPL projects). <a href="examples/sencha-touch/examples/kiva/index.html">Let's take a look at their demo</a> and see how it works.</li>
 		</ul>
