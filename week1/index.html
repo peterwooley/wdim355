@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <title>WDIM262 Web Scripting: JavaScript &mdash; Week 9</title>
+        <title>WDIM355 Client-Side Scripting &mdash; Week 1</title>
         <!-- Slippy core file and dependencies -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
         <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
         <script type="text/javascript" src="slippy/src/slippy.js"></script>
         <!-- Slippy structural styles -->
@@ -31,150 +31,96 @@
     </head>
     <body>
         <div class="slide title" data-layout="title">
-            <h1>WDIM262 <br />Web Scripting: JavaScript</h1>
-			<h2>Week 9</h2>
+            <h1>WDIM355 <br />Web Scripting: JavaScript</h1>
+			<h2>Week 1</h2>
         </div>
         
         <div class="slide">
-            <h1>Turn in Assignment 6</h1>
-    		<p>Email to <a href="mailto:pwooley@aii.com">pwooley@aii.edu</a> using the following naming convention: <var>lastnameFirstname</var>_assignment6.zip.</p>
-        </div>
-        
-        <div class="slide">
-            <h1>Cookies</h1>
-            <p>Cookies are small text files that are stored on a user's computer to remember information about a website.</p>
-            <pre class="brush: js eval">// Returns all the cookies stored for this web site.
-alert(document.cookie);</pre>
-            <pre class="brush: js eval">// Creates a cookie with the name hello.
-// It will expire tonight at 9:45pm.
-document.cookie = 'hello=world; expires=Thu, 02 Dec 2011 05:45:00 GMT; path=/';</pre>
-            <pre class="brush: js eval">// Create a cookie with the name foo.
-// It will expire when the browser is closed.
-document.cookie = 'user=peterwooley; path=/';</pre>
-        </div>
-        
-        <div class="slide">
-            <h1>Easily Create Cookies</h1>
-            <p>Cookies are a bit of a pain to deal with, so we can make use of a few functions written by <a href="http://www.quirksmode.org/">PPK</a>!</p>
-            <pre class="brush: js eval">// Creates cookie for 2 days.
-createCookie("week", 9, 2);
-
-// From http://www.quirksmode.org/js/cookies.html
-function createCookie(name,value,days) {
-	if (days) {
-		var date = new Date();
-		date.setTime(date.getTime()+(days*24*60*60*1000));
-		var expires = "; expires="+date.toGMTString();
-	}
-	else var expires = "";
-	document.cookie = name+"="+value+expires+"; path=/";
-}</pre>
-            <pre class="brush: js eval">// Returns all the cookies stored for this web site.
-alert(document.cookie);</pre>
-        </div>
-        
-        <div class="slide">
-            <h1>Easily Read Cookies</h1>
-            <p>Much like creating them, you can read them easily using a function.</p>
-            <pre class="brush: js eval">
-alert(readCookie("week"));
-
-// From http://www.quirksmode.org/js/cookies.html
-function readCookie(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for(var i=0;i !== ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	}
-	return null;
-}</pre>    
-        </div>
-        
-        <div class="slide">
-            <h1>Easily Delete Cookies</h1>
-            <pre class="brush: js eval">
-eraseCookie("week");
-
-// From http://www.quirksmode.org/js/cookies.html
-function eraseCookie(name) {
-	createCookie(name,"",-1);
-}
-
-function createCookie(name,value,days) {
-    if (days) {
-		var date = new Date();
-		date.setTime(date.getTime()+(days*24*60*60*1000));
-		var expires = "; expires="+date.toGMTString();
-	}
-	else var expires = "";
-	document.cookie = name+"="+value+expires+"; path=/";
-}
-</pre>
-            <pre class="brush: js eval">// Returns all the cookies stored for this web site.
-alert(document.cookie);</pre>
-        </div>
-        
-        <div class="slide">
-            <h1>Driver #1, Let's do this.</h1>
-            <p>Using cookies, create a page that allows a user to type their username into a form, submit the form, refresh the page and be greeted with their username.</p>
-            <pre class="brush: xml">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;Login!&lt;/title&gt;
-        &lt;script&gt;
-            window.onload = function() {
-                
-            };
-        &lt;/script&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;form id="login" name="login" action="" method="post"&gt;
-            &lt;input type="text" name="username" id="username" /&gt;
-            &lt;input type="submit" value="Login" /&gt;
-        &lt;/form&gt;
-    &lt;/body&gt;
-&lt;/html&gt;</pre>
-        </div>
-        </div>
-        
-        <div class="slide">
-            <h1>Libraries</h1>
-    
-        	<h2>Who needs 'em?</h2>
-			<ul>
-				<li>Everyone who wants to develop JavaScript Apps without reinventing the wheel.</li>
-				<li>Everyone who wants to take advantage of other people's code, usually for free.</li>
-				<li>Everyone who wants hot, fast JavaScript performance.</li>
-			</ul>
-    
-    		<h2>What do they do?</h2>
-			<ul>
-				<li>From jQuery: "...simplifies how you traverse HTML documents, handle events, perform animations, and add Ajax interactions to your web pages."</q></li>
-				<li>Handle many of the Cross-browser bugs for you, in clean, progressive ways.</li>
-				<li>Provide access to the Document Object Model through CSS3 selectors. (<strong>Hooray!</strong>)</li>
-			</ul>
-        </div>
-		
-        <div class="slide">
-    		<h1>Libraries: The Good Parts</h1>
-    		<p><a href="http://www.domassistant.com/slickspeed/">What Frameworks are top-notch</a>?</p>
-			<ul>
-				<li><a href="http://jquery.com">jQuery</a></li>
-				<li><a href="http://www.prototypejs.org/">Prototype</a></li>
-				<li><a href="http://extjs.com">ExtJS Core</a></li>
-				<li><a href="http://dojotoolkit.org">Dojo</a></li>
-				<li><a href="http://developer.yahoo.com/yui/">YUI (Yahoo! UI)</a></li>
-			</ul>
-        </div>
-        
-        <div class="slide">
-            <h1><a href="http://jquery.com/">jQuery</a> Wins!</h1>
+            <h1>Me!</h1>
             <ul>
-        		<li>We'll be looking at jQuery based on its small size, browser compatibility, AJAX support, and revolutionary syntax.</li>
+                <li>Been hacking JavaScript since 2005.</li>
+                <li>Write Java and JavaScript from 9:00-5:00.</li>
+                <li>Write JavaScript using node.js from 5:00-9:00.</li>
+                <li>My favorite games are: Portal, WoW, Legend of Zelda: Ocarina of Time, &amp; Munchkin.</li>
+            </ul>
+        </div>
+        
+        <div class="slide">          	
+    		<h1>Introductions</h1>
+    		<ol>
+    			<li>What's your name?</li>
+    			<li>What's your favorite game?</li>
+    			<li>What do you want this class to do for you?</li>
+    			<li>On a scale of <dfn title="Pi, ~3.14">&pi;</dfn> to <dfn title="Infinity">&infin;</dfn>, how much do you like JavaScript?</li>
+    		</ol>
+        </div>
+         
+        <div class="slide">
+            <h1>How things work</h1>
+        	<ul>
+    			<li>Each week we'll take some ginormous topic and get at its core.</li>
+    			<li>We'll have weekly assignments, unless we're working on one of two projects.</li>
+    			<li>We'll have weekly quizzes.</li>
+    			<li>The final project will take three weeks and should be <em>monumental</em>.</li>
+    			<li>There will be <strong>no</strong> midterm or final exam.</li>
+    		</ul>
+        </div>
+        
+        <div class="slide title">
+            <h1>Getting Started</h1>
+        	<h2><a href="WI12_WDIM355_A.pdf">The Syllabus</a></h2>
+        </div>
+        
+        <div class="slide">
+            <h1>Recommended Resources</h1>
+        	<ul>
+    			<li>Rey Bango's <a href="http://blog.reybango.com/2010/12/15/what-to-read-to-get-up-to-speed-in-javascript/">What to Read to Get Up to Speed in JavaScript</a></li> 
+    			<li><a href="http://amzn.com/1849516545">Learning jQuery, 3rd Edition</a> by Karl Swedberg and Jonathan Chaffer</li>
+    			<li><a href="http://oreilly.com/catalog/9780596517748">JavaScript: The Good Parts</a> by Douglas Crockford</li>	
+    		</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>Epic JavaScript, AKA Web 2.0</h1>
+    			<p><blockquote>"Basically, what 'Ajax' means is 'Javascript now works.' And that in turn means that web-based applications can now be made to work much more like desktop ones." Paul Graham, <a href="http://www.paulgraham.com/web20.html">Nov. 2005</a></blockquote></p>
+                <p><blockquote>"We now have several examples to prove that amateurs can surpass professionals, when they have the right kind of system to channel their efforts. Wikipedia may be the most famous." Paul Graham, <a href="http://www.paulgraham.com/web20.html">Nov. 2005</a></blockquote></p>
+        </div>
+        
+        <div class="slide">
+            <h1>What can it do now?</h1>
+        	<ul>
+        		<li><a href="http://www.youtube.com/watch?v=fyfu4OwjUEI">Quake II.</a></li>
+    			<li><a href="http://benfirshman.com/projects/jsnes/">JSNES (NES Emulator)</a></li>
+                <li><a href="http://pasjans-online.pl/">Solitaire</a></li>
+                <li><a href="http://arcade.rawrbitrary.com/mario/">Infinite Mario</a></li>
+                <li><a href="http://c9.io/">Cloud9IDE</a></li>
+    		</ul>
+        </div>
+        
+        <div class="slide">
+    		<h1>What can't it do?</h1>
+    		<ul>
+    			<li>It can't get you free pizza (as far as I know).</li>
+    			<li>It still can't access the user's file system, but it now lets the user <a href="http://html5doctor.com/native-drag-and-drop/">drag n' drop files from their filesystem</a>.</li>
+    		</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>Always remember The Web Trifecta</h1>
+        	<ul>
+    			<li>HTML for Content</li>
+    			<li>CSS for Style</li>
+    			<li>JavaScript for Behavior</li>
+    		</ul>
+        </div>
+        
+        <div class="slide">
+        	<h1>'Ello, jQuery!</h1>
+    		<ul>
+            	<li>We'll be looking at the jQuery JavaScript Library based on <del>how cool everyone else thinks it is</del> <ins>its small size, browser compatibility, AJAX support, and revolutionary syntax.</ins></li>
     			<li>Documentation URL: <a href="http://docs.jquery.com/">http://docs.jquery.com/</a></li>
     			<li>API URL (Good for quick searches): <a href="http://api.jquery.com">http://api.jquery.com</a></li>
+    			
     		</ul>
         </div>
         
@@ -198,8 +144,8 @@ $("h1").addClass("highlight");
         
         <div class="slide" id="chainability">
             <h1>Chainability (The Magic of jQuery)</h1>
-        	<ul>
-    			<li>"In a nutshell: Every method within jQuery returns the query object itself, allowing you to 'chain' upon it..." <a href="http://docs.jquery.com/How_jQuery_Works#Chainability_.28The_Magic_of_jQuery.29">#</a></li>
+            <ul>
+    			<li>"In a nutshell: Every method within jQuery returns the [jQuery] object itself, allowing you to 'chain' upon it..." <a href="http://docs.jquery.com/How_jQuery_Works#Chainability_.28The_Magic_of_jQuery.29">#</a></li>
     			<li><strong>Most</strong> jQuery methods return the jQuery Object itself, which contains the elements you last selected.</li>
     			<li>This means that you can call methods using dot notation one after another with no new statements.</li>
     		</ul>
@@ -212,26 +158,183 @@ $("h1").addClass("highlight");
     .click(function() { alert("Greetings from the chain!"); });
 
 // The equivalent vanilla JavaScript would be too big to show.</pre>
-        </div>
+        </div>       
         
         <div class="slide">
             <h1>To the code!</h1>
-            <p>There's a lot more to play with, so head into <a href="inclass/jquery.html">inclass/jquery.html</a>.</p>
+            <p>Open up <a href="inclass/hello_jquery.html">inclass/hello_jquery.html</a> in your favorite text editor.</p>
         </div>
         
+        <div class="slide">
+        	<h1><a href="http://www.youtube.com/watch?v=8ipbdxiJU2k">Test Your Might!</a></h1>
+    		<ul>
+    			<li>Our first hackathon: <a href="inclass/jquery_login.html">jQuery Login App (inclass/jquery_login.html)</a>.</li>
+                <li>Team up with someone who isn't sitting to your left or right.</li>
+    			<li>You've got 30 minutes to work on this App. The instructions are in the script.</li>
+    		</ul>
+        </div>
+  
+        <div class="slide">
+          	<h1>Asyncronous JavaScript and XML</h1>
+    		<ul>
+    			<li>First off, what it stands for is a bit of a misnomer, which we'll see.</li>
+    			<li>For the above reason, I'll be writing it as "Ajax", not all capitalized.</li>
+    			<li>There's a lot of hype, <a href="http://marc.info/?l=php-general&amp;m=112198633625636&amp;w=2">but it's pretty basic</a>.</li>
+    			<li>Let's see a barebones example in <a href="examples/ajax/ajax.html">examples/ajax/ajax.html</a>.
+    		</ul>
+        </div>
         
+        <div class="slide">
+            <h1>JSONP&mdash;JSON with Padding!</h1>
+        	<ul>
+    			<li><a href="http://www.json.org/">JSON</a> is a data-interchange format that is actually valid JavaScript.</li>
+    			<li>In order to get around Ajax domain limitations, <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">somebody came up with a great idea</a>.</li>
+    			<li>JSONP (basically) generates a new <code>&lt;script /&gt;</code> tag, and loads a remote <code>src</code> url.</li>
+    			<li>Based on the URL, the server then generates JSON and wraps it in a JavaScript function call.</li>
+    			<li>When the script is loaded, it executes the function and we have access to the data.</li>
+    			<li>Let's look at how we can <a href="examples/flickr.html">interact with Flickr</a> in this way.</li>
+    		</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>Tagathon</h1>
+    		<ul>
+    			<li>Using <a href="examples/flickr.html">our Flickr example</a>, create an app that allows a user to search Flickr by tag and see the top 20 images.</li>
+                <li>Team up with your partner from the first hackathon.</li>
+    			<li>Make sure the app fulfills these requirements:
+                    <ol>
+                        <li>The user types a Flickr tag into a text box and hits the submit button.</li>
+        				<li>The top 20 images with that tag appear on the screen.</li>
+    					<li>At any time, the user should be able to change the text box and re-submit to get an updated gallery.</li>
+                    </ol>
+                </li>
+    		</ul>
+        </div>
+        
+        <div class="slide title">
+            <h1>Break?</h1>
+        </div>
+        
+        <div class="slide">
+            <h1>Everything's an Object</h1>
+            <p>JavaScript is an <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Language</a>.</p>
+            <p>Most values in JavaScript are objects, which means they can have properties and methods.</p>
+            <pre class="brush: js">console.log("What did she say?".length);
+console.log(["A", "B", "C"].join(" -> "));</pre>
+
+            <p>Arbitrary properties and methods can be created:</p>
+            <pre class="brush: js eval">var foo = {};
+foo.awesome = true;
+console.log(foo.awesome);
+
+var bar = ['All', 'Sorts', 'of', 'Values'];
+bar.howLongIsThisArray = function() {
+    return this.length;
+};
+alert(bar.howLongIsThisArray());
+        </div>
+        
+        <div class="slide">
+            <h1>Primitives vs. Constructors</h1>
+            <p>Primitive types, in JavaScript, are built-in, basic types, which have special chracter sequences to define them.</p>
+        	<pre class="brush: js">// Some Primitives
+var arr = [],
+    obj = {},
+    str = "",
+    bool = true;</pre>
+
+            <p>Most primitives also have Constructors, which are a formal way of creating objects. Concstructors make use of the <code>new</code> operator.</p>
+    		<pre class="brush: js">// Some Constructors
+var arr = new Array(),
+    obj = new Object(),
+    str = new String("""),
+    bool = new Boolean(true);</pre>
+    		<p>Personally, I rarely use constructors, as they are typically unnecessary bloat.</p>
+        </div>
+
+        <div class="slide">
+    		<h1><code>this</code></h1>
+
+            <ul>
+        		<li>When a function run, <code>this</code> is set to the global (window) object.</li>
+        		<li>The <code>window</code> object is called the global object because it contains all the global functions and variables. <br />(e.g., <code>window.console.log() === console.log()</code>)</li>
+
+        	</ul>
+            <pre class="brush: js">function foo() {
+    alert(this);
+}
+foo(); // alerts reference to window</pre>
+        </div>
+        
+        <div class="slide">
+            <h1><code>this</code> in a Method</h1>
+        	<ul>
+    			<li>Heading deeper down the rabbit hole, we come to the <em>method</em>.</li>
+
+    			<li>When a function is a <em>method</em> of an object and called, <code>this</code> behaves differently.</li>
+    			<li>Instead of <code>this</code> being a reference to the <code>window</code> object, it's a reference to the object of which it's a <em>method</em>.</li>
+
+    		</ul>
+    		<pre class="brush: js eval">var user = {
+	name: "Johnny Alabaster",
+	age: 43
+};
+user.getInfo = function() {
+    alert(this);
+    alert(this.name);
+    alert(this.age);
+};
+user.getInfo(); // alerts reference to user</pre>
+        </div>
+
+        <div class="slide">
+            <h1><code>this</code> as a Constructor</h1>
+        	<ul>
+
+    			<li>If your mind has yet to be blown, this will do it.</li>
+    			<li>When a function is called with the <code>new</code> operator, a new object <em>with the properties and methods of the function</em> is created and assigned to <code>this</code>.</li>
+    			<li>If a specific value is not returned from the function, then <code>this</code> will be returned.</li>
+
+    		</ul>
+    		<pre class="brush: js eval">function User(name, password) {
+	this.name = name;
+	this.password = password;
+
+	this.getInfo = function() {
+		alert(this.name);
+        alert(this.password);
+	};
+}
+var user1 = new User("peterwooley", "Freedom");
+var user2 = new User("thor", "HammerTime");
+
+// logs both users names and passwords
+user1.getInfo();
+user2.getInfo();</pre>
+        </div>
+
+        <div class="slide">
+            <h1>Huh?</h1>
+            <p>If <code>this</code> isn't clear, review the exercises from <a href="http://wdim262.herokuapp.com/week4/">the WDIM262 Week 4 Class notes</a>.
+        </div>
+  
+        <div class="slide title">
+    		<h1>Nearing the End</h1>
+			<h2>The <a href="homework.html">Homework</a>!</h2>
+		</div>
+  
 		<div class="slide title">
-			<h1>Fin</h1>
-			<h2>The <a href="homework.html">Final Project</a>!</h2>
+			<h1>Behold Your Future</h1>
+			<h2>The <a href="final.html">Final Project</a>!</h2>
 		</div>
 
         <div class="layout" data-name="title">
             <content></content>
             <div class="footer">
                 <span class="left">Peter Wooley</span>
-                <span class="right">WDIM387A</span>
-                <span class="left">Twitter <a href="http://twitter.com/peterwooley">@peterwooley</a></span>
-                <span class="right"><a href="http://wdim262.herokuapp.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim262">on GitHub</a>)</span>
+                <span class="right">WDIM355A</span>
+                <span class="left"><a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim355.heroku.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim355">on GitHub</a>)</span>
                 <hr class="defloat" />
             </div>
         </div>

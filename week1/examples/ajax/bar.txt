@@ -1,1 +1,1 @@
-foo|bar done
+bar.txt loaded.
