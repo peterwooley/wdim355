@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WDIM355 Client-Side Scripting, Week 2</title>
+		<script src="scripts/highlight/highlight.js"></script>
+		<script>
+			hljs.initHighlightingOnLoad('html', 'javascript');
+		</script>
+		<link rel="stylesheet" href="styles/highlight.css" />
+		<link rel="stylesheet" href="styles/common.css" media="all" />
+		<link rel="stylesheet" href="styles/projection.css" media="projection" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>WDIM355 Client-Side Scripting</h1>
+			<p class="tagline">The jQuery Class, Week 2</p>
+		</div>
+		
+		<h2>Weekly Happenings</h2>
+		<ul>
+			<li>Jake loves O'Reily Books, Facebook tells me. Which ones are good?</li>
+			<li>HTML5 The Specification <a href="http://blog.whatwg.org/html-is-the-new-html5">is now just called HTML</a>.</li>
+			<li>HTML5 The Buzzword <a href="http://www.w3.org/html/logo/">just got itself a logo!</a></li>
+			<li>Anything else?</li>
+		</ul>
+
+		<h2>Implicit and Explicit Binding</h2>
+		<ul>
+			<li>An excellent resource is A List Apart's <a href="http://alistapart.com/articles/getoutbindingsituations">Getting Out of Binding Situations in JavaScript</a></li>
+			<li>In many languages, the 'this' keyword is either:
+				<ul>
+					<li>not necessary, or</li>
+					<li>will always refer to the object where it was called.</li>
+				</ul>
+			</li>
+			<li>When you can trust the 'this' keyword, you can consider that implicit binding, it's assumed.</li>
+			<li>In JavaScript, there is no implicit binding.</li>
+			<li>The 'this' keyword in JavaScript is both required and tricky.</li>
+		</ul>
+		
+		<h2>More Implicit and Explicit Binding</h2>
+		<ul>
+			<li>To refer to variables only in the object's local scope, you must prepend the 'this' reference.</li>
+			<li>In order to maintain scope when your 'this' value gets out-of-hand, you can use a "lexical closure":
+<pre><code class="javascript">function MyObject() {
+	var self = this;
+	this.name = "A beter object!";
+	
+	this.calledByEvent = function(arg) {				
+		// When called by an event, 'this' refers to another object
+		alert("This keyword: " . this.name);
+		
+		// So, you can reference the private 'self' variable
+		alert("Self keyword: " . self.name);
+		
+		// Alert out Argument, for good measure
+		alert("Argument: " . arg);
+	}
+}
+
+var myobject = new MyObject;
+setTimeout(myobject.calledByEvent, 500);</code></pre>
+			</li>
+		</ul>
+		
+		<h2><code>apply</code> &amp; <code>call</code></h2>
+		<ul>
+			<li>You can utilize two built-in methods that will allow you to set the scope that should be used for the 'this' keyword</li>
+			<li><code>apply</code>
+				<pre><code class="javascript">myobject.calledByEvent.apply(window, ['Window Scope']);
+myobject.calledByEvent.apply(myobject, ['myobject Scope']);</code></pre>				
+			</li>
+			<li><code>call</code>
+				<pre><code class="javascript">myobject.calledByEvent.call(window, 'Window Scope');
+myobject.calledByEvent.call(myobject, 'myobject Scope');</code></pre>				
+			</li>
+		</ul>
+		
+        <div class="slide">
+            <h1>Objectathon</h1>
+            <ul>
+        		<li>Create a custom object that accepts an argument of an image url in its constructor and stores that url in a property named <code>source</code>.</li>
+    			<li>Give it a public method named <code>draw</code> that ues jQuery to create a new <code>&lt;img /&gt;</code> element with the <code>source</code> property as its <code>src</code> attribute and append the <code>&lt;img&gt;</code> element to the <code>&lt;body&gt;</code>. (See the jQuery Documentation on <a href="http://api.jquery.com/jQuery/#jQuery2">creating elements with $()</a>, the <a href="http://api.jquery.com/attr/">attr() method</a>, and the <a href="http://api.jquery.com/appendTo/">appendTo() method</a>.)</li>
+    			<li>Create two instances of the custom object with different valid image references and call the <code>draw()</code> method on both.</li>
+    		</ul>
+        </div>
+        
+		<h2>Object-oriented JavaScript, in practice: Logging In</h2>
+		<ul>
+			<li>Utilizing several objects, implement a clear-text login system, cleanly</li>
+			<li>Create a WepApp object that can be instaniated once and handle everything else</li>
+			<li>Use static HTML for login and app purposes, starting them off hidden</li>
+			<li>Create an Accounts object that stores and authenticates users, with the ability to scale to an Ajax-based approach</li>
+			<li>Utilize a Users object that stores the user's status and allows modification</li>
+		</ul>
+
+		<h2>Homework</h2>
+		<ul>
+			<li><a href="homework.html">Objectified</a></li>
+		</ul>
+		
+	</body>
+</html>
