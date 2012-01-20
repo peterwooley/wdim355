@@ -1,1 +1,5 @@
-bar.txt loaded.
+{
+    "name": "Peter Wooley",
+    "age": 26,
+    "occupation": "Awesome"
+}
