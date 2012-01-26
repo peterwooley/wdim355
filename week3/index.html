@@ -1,84 +1,241 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>WDIM355 Client-Side Scripting, Week 3</title>
-		<script src="scripts/highlight/highlight.js"></script>
-		<script>
-			hljs.initHighlightingOnLoad('html', 'javascript');
-		</script>
-		<link rel="stylesheet" href="styles/highlight.css" />
-		<link rel="stylesheet" href="styles/common.css" media="all" />
-		<link rel="stylesheet" href="styles/projection.css" media="projection" />
-	</head>
-	<body>
-		<div id="header">
-			<h1>WDIM355 Client-Side Scripting</h1>
-			<p class="tagline">The jQuery Class, Week 3</p>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM355 Client-Side Scripting &mdash; Week 3</title>
+        <!-- Slippy core file and dependencies -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
+		<!-- Common Styles -->
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+        
+        <style>
+            .highlight { background: yellow !important; }
+        </style>
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM355<br />Client-Side Scripting</h1>
+			<h2>Week 3</h2>
+        </div>
+        
+        <div class="slide">
+            <h1>Homework</h1>
+    		<p>Turn in your homework by emailimg it to me at <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a> using the convention <var>lastnameFirstname_assignment2.zip</var>.</p>
+            <p>We'll take a look at Brian's implementation, as he emailed me first!</p>
+        </div>
+  
+        <div class="slide">
+          	<h1>Asynchronous JavaScript and XML</h1>
+    		<ul>
+    			<li>First off, what it stands for is a bit of a misnomer, which we'll see.</li>
+    			<li>For the above reason, I'll be writing it as "Ajax", not all capitalized.</li>
+    			<li>There's a lot of hype, <a href="http://marc.info/?l=php-general&amp;m=112198633625636&amp;w=2">but it's pretty basic</a>.</li>
+    			<li>Let's see a barebones example in <a href="examples/ajax/ajax.html">examples/ajax/ajax.html</a>.
+    		</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>JSONP&mdash;JSON with Padding!</h1>
+        	<ul>
+    			<li><a href="http://www.json.org/">JSON</a> is a data-interchange format that is actually valid JavaScript.</li>
+    			<li>In order to get around Ajax domain limitations, <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">somebody came up with a great idea</a>.</li>
+    			<li>JSONP (basically) generates a new <code>&lt;script /&gt;</code> tag, and loads a remote <code>src</code> url.</li>
+    			<li>Based on the URL, the server then generates JSON and wraps it in a JavaScript function call.</li>
+    			<li>When the script is loaded, it executes the function and we have access to the data.</li>
+    			<li>Let's look at how we can <a href="examples/flickr.html">interact with Flickr</a> in this way.</li>
+    		</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>Tagathon</h1>
+    		<ul>
+    			<li>Using <a href="examples/flickr.html">our Flickr example</a>, create an app that allows a user to search Flickr by tag and see the top 20 images.</li>
+                <li>Team up with your partner from the first hackathon.</li>
+    			<li>Make sure the app fulfills these requirements:
+                    <ol>
+                        <li>The user types a Flickr tag into a text box and hits the submit button.</li>
+        				<li>The top 20 images with that tag appear on the screen.</li>
+    					<li>At any time, the user should be able to change the text box and re-submit to get an updated gallery.</li>
+                    </ol>
+                </li>
+    		</ul>
+        </div>
+        
+        <div class="slide title">
+            <h1>Break?</h1>
+        </div>
+        
+        <div class="slide">
+            <h1>Everything's an Object</h1>
+            <p>JavaScript is an <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Language</a>.</p>
+            <p>Most values in JavaScript are objects, which means they can have properties and methods.</p>
+            <pre class="brush: js">console.log("What did she say?".length);
+console.log(["A", "B", "C"].join(" -> "));</pre>
+
+            <p>Arbitrary properties and methods can be created:</p>
+            <pre class="brush: js eval">var foo = {};
+foo.awesome = true;
+console.log(foo.awesome);
+
+var bar = ['All', 'Sorts', 'of', 'Values'];
+bar.howLongIsThisArray = function() {
+    return this.length;
+};
+alert(bar.howLongIsThisArray());
+        </div>
+        
+        <div class="slide">
+            <h1>Primitives vs. Constructors</h1>
+            <p>Primitive types, in JavaScript, are built-in, basic types, which have special chracter sequences to define them.</p>
+        	<pre class="brush: js">// Some Primitives
+var arr = [],
+    obj = {},
+    str = "",
+    bool = true;</pre>
+
+            <p>Most primitives also have Constructors, which are a formal way of creating objects. Concstructors make use of the <code>new</code> operator.</p>
+    		<pre class="brush: js">// Some Constructors
+var arr = new Array(),
+    obj = new Object(),
+    str = new String("""),
+    bool = new Boolean(true);</pre>
+    		<p>Personally, I rarely use constructors, as they are typically unnecessary bloat.</p>
+        </div>
+
+        <div class="slide">
+    		<h1><code>this</code></h1>
+
+            <ul>
+        		<li>When a function run, <code>this</code> is set to the global (window) object.</li>
+        		<li>The <code>window</code> object is called the global object because it contains all the global functions and variables. <br />(e.g., <code>window.console.log() === console.log()</code>)</li>
+
+        	</ul>
+            <pre class="brush: js">function foo() {
+    alert(this);
+}
+foo(); // alerts reference to window</pre>
+        </div>
+        
+        <div class="slide">
+            <h1><code>this</code> in a Method</h1>
+        	<ul>
+    			<li>Heading deeper down the rabbit hole, we come to the <em>method</em>.</li>
+
+    			<li>When a function is a <em>method</em> of an object and called, <code>this</code> behaves differently.</li>
+    			<li>Instead of <code>this</code> being a reference to the <code>window</code> object, it's a reference to the object of which it's a <em>method</em>.</li>
+
+    		</ul>
+    		<pre class="brush: js eval">var user = {
+	name: "Johnny Alabaster",
+	age: 43
+};
+user.getInfo = function() {
+    alert(this);
+    alert(this.name);
+    alert(this.age);
+};
+user.getInfo(); // alerts reference to user</pre>
+        </div>
+
+        <div class="slide">
+            <h1><code>this</code> as a Constructor</h1>
+        	<ul>
+
+    			<li>If your mind has yet to be blown, this will do it.</li>
+    			<li>When a function is called with the <code>new</code> operator, a new object <em>with the properties and methods of the function</em> is created and assigned to <code>this</code>.</li>
+    			<li>If a specific value is not returned from the function, then <code>this</code> will be returned.</li>
+
+    		</ul>
+    		<pre class="brush: js eval">function User(name, password) {
+	this.name = name;
+	this.password = password;
+
+	this.getInfo = function() {
+		alert(this.name);
+        alert(this.password);
+	};
+}
+var user1 = new User("peterwooley", "Freedom");
+var user2 = new User("thor", "HammerTime");
+
+// logs both users names and passwords
+user1.getInfo();
+user2.getInfo();</pre>
+        </div>
+
+        <div class="slide">
+            <h1>Objectathon</h1>
+            <ul>
+            	<li>Create a custom object that accepts an argument of an image url in its constructor and stores that url in a property named <code>source</code>.</li>
+    			<li>Give it a public method named <code>draw</code> that ues jQuery to create a new <code>&lt;img /&gt;</code> element with the <code>source</code> property as its <code>src</code> attribute and append the <code>&lt;img&gt;</code> element to the <code>&lt;body&gt;</code>. (See the jQuery Documentation on <a href="http://api.jquery.com/jQuery/#jQuery2">creating elements with $()</a>, the <a href="http://api.jquery.com/attr/">attr() method</a>, and the <a href="http://api.jquery.com/appendTo/">appendTo() method</a>.)</li>
+    			<li>Create two instances of the custom object with different valid image references and call the <code>draw()</code> method on both.</li>
+                <li>The end result should be a page with two distinct images visible after loading the page.</li>
+    		</ul>
+        </div>
+        
+        <div class="slide">
+            <h1>Object-oriented JavaScript, in practice: Insecure, but Object-Oriented Login</h1>
+        	<ul>
+    			<li>Utilizing several objects, implement a clear-text login system.</li>
+    			<li>Create a WepApp object that can be instaniated once and handle everything else</li>
+    			<li>Generate the HTML elements necessary to render the web app.</li>
+    			<li>Create an Accounts object that stores and authenticates users, with the ability to scale to an Ajax-based approach.</li>
+    		</ul>
+        </div>
+
+        <div class="slide">
+            <h1>Huh?</h1>
+            <p>If <code>this</code> isn't clear, review the exercises from <a href="http://wdim262.herokuapp.com/week4/">the WDIM262 Week 4 Class notes</a>.
+        </div>
+  
+        <div class="slide title">
+    		<h1>The End</h1>
+			<h2>The <a href="homework.html">Homework</a></h2>
 		</div>
-		
-		<h2>Weekly Happenings</h2>
-		<ul>
-			<li><a href="https://github.com/ajaxorg/editor">ACE Editor Released</a>. (In-browser code editor that doesn't suck, based on Bespin)
-			<li>jQuery 1.5 RC released this week. (Final version will ship January 31st.)</li>
-			<li><a href="http://apple.com">Apple.com</a> changed their main nav to glass.</li>
-			<li>PSP2 was announced! Anybody want it?</li>
-			<li>Anything else!?</li>
-		</ul>
-		
-		<h2>Homework</h2>
-		<ul>
-			<li>Turn in your homework to <kbd>S:\Data\wdim355\week3\homework</kbd></li>
-			<li>We'll be taking a look at the <em>smallest</em> execution of the homework.</li>
-		</ul>
-		
-		<h2>Quiz</h2>
-		<ul>
-			<li><a href="https://spreadsheets.google.com/viewform?formkey=dE9qWVdlT1p3SENjbVpNNmFNMklMdGc6MA">The quiz is online</a>.</li>
-			<li>Quizzes are open, you can use:
-				<ul>
-					<li>Your Notes</li>
-					<li>The Interwebs</li>
-					<li>Books</li>
-					<li>Experts that <em>aren't</em> in this class</li>
-				</ul>
-			</li>
-		</ul>
-		
-		<h2>Object-oriented JavaScript, in practice: Logging In</h2>
-		<ul>
-			<li>Utilizing several objects, implement a clear-text login system, cleanly</li>
-			<li>Create a WepApp object that can be instaniated once and handle everything else</li>
-			<li>Use static HTML for login and app purposes, starting them off hidden</li>
-			<li>Create an Accounts object that stores and authenticates users, with the ability to scale to an Ajax-based approach</li>
-			<li>Utilize a Users object that stores the user's status and allows modification</li>
-		</ul>
-		
-		<h2>In Class Hackathon: Image Gallery</h2>
-		<ul>
-			<li>Our second in-class exercise: <a href="inclass/gallery.html">Image Gallery (inclass/gallery.html)</a>.</li>
-			<li>You've got 30 minutes to work on this App. The instructions are in the script.</li>
-		</ul>
-		
-		<h2>JavaScript Best Practices</h2>
-		<ul>
-			<li>Google has released their <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">JavaScript Style Guide</a> and it's full of good advice!</li>
-			<li>We'll take a look at some of them, but you should become familiar with most of them.</li>
-		</ul>
-		
-		<h2>Events</h2>
-		<ul>
-			<li>jQuery has extensive support for events beyond what we've played with, including the ability to bind multiple events, unbind events, and trigger custom events.</li>
-			<li>We can utilize the bind() and trigger() methods for these advanced uses.</li>
-			<li>You can use the optional 'data' parameter of the bind method to pass along data into the event.data scope.</li>
-			<li>All jQuery objects can call any custom events.</li>
-			<li>Let's look at the <a href="inclass/events.html">Events script</a>.</li>
-		</ul>
-		
-		<h2>Homework</h2>
-		<ul>
-			<li><a href="homework.html">Mock-up</a></li>
-		</ul>
-		
+
+        <div class="layout" data-name="title">
+            <content></content>
+            <div class="footer">
+                <span class="left">Peter Wooley</span>
+                <span class="right">WDIM355A</span>
+                <span class="left"><a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim355.heroku.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim355">on GitHub</a>)</span>
+                <hr class="defloat" />
+            </div>
+        </div>
+
+        <div class="layout nofooter" data-name="default">
+            <content></content>
+        </div>
+    
+		<!-- Common Scripts -->
+		<script src="scripts/jquery.noisy.min.js"></script>
+		<script src="scripts/index.js"></script>
+        
+        <script>
+            $("#jqueryTraversal").submit(function() {
+                var val = $("#jQueryQuery").val();
+                $.alert("$(\"" + val + "\").toggleClass( \"highlight\" );");
+                $(val).toggleClass("highlight");
+                return false;
+            });
+        </script>
 	</body>
 </html>
