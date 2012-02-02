@@ -6,87 +6,20 @@
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 		<script>
-            $(function() {
-                function ColorChanger() {
-                    var self = this;
-                    this.container = $('<div><input class="textColor">'+
-                    '<input class="backgroundColor">'+
-                    '<p>Whee lots of text is fun!</p></div>').appendTo("body");
-                    
-                    $(".textColor", this.container).keyup(function() {
-                       var color = $(this).val();
-                       console.log(color);
-                       
-                       $("p", self.container).css("color", color);
-                    });
-                    
-                    $(".backgroundColor", this.container).keyup(function() {
-                       var color = $(this).val();
-                       console.log(color);
-                       
-                       $("p", self.container).css("background-color", color);
-                    });
-                }
-                
-                new ColorChanger();
-                
-                var temp = {};
-                this = temp;
-                
-                new ColorChanger();
-                new ColorChanger();
-                
-                
-                
-                
-                
-               $("#widget1 .textColor").keyup(function() {
-                   var color = $(this).val();
-                   console.log(color);
-                   
-                   $("#widget1 p").css("color", color);
-               });
-               
-               $("#widget1 .backgroundColor").keyup(function() {
-                   var color = $(this).val();
-                   console.log(color);
-                   
-                   $("#widget1 p").css("background-color", color);
-               });
-               
-               $("#widget2 .textColor").keyup(function() {
-                   var color = $(this).val();
-                   console.log(color);
-                   
-                   $("#widget2 p").css("color", color);
-               });
-               
-               $("#widget2 .backgroundColor").keyup(function() {
-                   var color = $(this).val();
-                   console.log(color);
-                   
-                   $("#widget2 p").css("background-color", color);
-               });
-            });
-        
-        
-        
-        
-
+            // Advanced jQuery Events
+            
+            // Binding multiple events
+            
+            // Triggering events
+            
+            // Passing additional data
+            
+            // Binding to and triggering custom events
+            
+            // Using custom events with objects
 		</script>
 	</head>
 	<body>
-        <div id="widget1">
-            <input class="textColor">
-            <input class="backgroundColor">
-            <p>Whee lots of text is fun!</p>
-        </div>
-        
-        <div id="widget2">
-            <input class="textColor">
-            <input class="backgroundColor">
-            <p>Whee lots of text is fun!</p>
-        </div>
 	</body>
 </html>
 
