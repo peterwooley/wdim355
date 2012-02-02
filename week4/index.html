@@ -1,66 +1,84 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>WDIM355 Client-Side Scripting, Week 4</title>
-		<script src="scripts/highlight/highlight.js"></script>
-		<script>
-			hljs.initHighlightingOnLoad('html', 'javascript');
-		</script>
-		<link rel="stylesheet" href="styles/highlight.css" />
-		<link rel="stylesheet" href="styles/common.css" media="all" />
-		<link rel="stylesheet" href="styles/projection.css" media="projection" />
-	</head>
-	<body>
-		<div id="header">
-			<h1>WDIM355 Client-Side Scripting</h1>
-			<p class="tagline">The jQuery Class, Week 4</p>
-		</div>
-		
-		<h2>Weekly Happenings</h2>
-		<ul>
-			<li>jQuery 1.5 Released. Big, new feature is the <a href="http://api.jquery.com/category/deferred-object/">Deferred Object</a>.</li>
-			<li><a href="http://gizmodo.com/5746121/how-egypt-turned-off-the-internet">Egypt tried to turn off the Internet</a>, but ultimately failed.</li>
-			<li>I found a Full-Stack Node.js-based JavaScript Testing Framework called <a href="http://zombie.labnotes.org/">Zombie.js</a>.</li>
-			<li>Anything else?!</li>
-		</ul>
-		
-		<h2>Homework</h2>
-		<ul>
-			<li>Turn in your homework to <kbd>S:\Data\wdim355\week4\homework</kbd> named like <code>lastnameFirstname_mockup.zip</code>.</li>
-			<li>We'll look at <em>someone's</em> implementation.</li>
-		</ul>
-		
-		<h2><del>Quiz</del></h2>
-		<ul>
-			<li>No Quiz!</li>
-		</ul>
-		
-		<h2>In Class Hackathon: Image Gallery</h2>
-		<ul>
-			<li>Our second in-class exercise: <a href="inclass/gallery.html">Image Gallery (inclass/gallery.html)</a>.</li>
-			<li>You've got 30 minutes to work on this App. The instructions are in the script.</li>
-		</ul>
-		
-		<h2>JSONP—JSON with Padding!</h2>
-		<ul>
-			<li><a href="http://www.json.org/">JSON</a> is a data-interchange format that is actually valid JavaScript.</li>
-			<li>In order to get around Ajax domain limitations, <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">somebody came up with a great idea</a>.</li>
-			<li>JSONP (basically) generates a new <code>&lt;script /&gt;</code> tag, and loads a remote <code>src</code> url.</li>
-			<li>Based on the URL, the server then generates JSON and wraps it in a JavaScript function call.</li>
-			<li>When the script is loaded, it executes the function and we have access to the data.</li>
-			<li>Let's look at how we can <a href="examples/flickr.html">interact with Flickr</a> in this way.</li>
-		</ul>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM355 Client-Side Scripting &mdash; Week 4</title>
+        <!-- Slippy core file and dependencies -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
 
-		<h2>JavaScript Best Practices</h2>
-		<ul>
-			<li>Google has released their <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">JavaScript Style Guide</a> and it's full of good advice!</li>
-			<li>We'll take a look at some of them, but you should become familiar with most of them.</li>
-		</ul>
-		
-		<h2>Always Use Semicolons</h2>
-		<pre><code class="javascript">// 1.
-MyClass.prototype.myMethod = function() {
+
+		<!-- Common Styles -->
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+        
+        <style>
+            .highlight { background: yellow !important; }
+        </style>
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM355<br />Client-Side Scripting</h1>
+			<h2>Week 4</h2>
+        </div>
+
+        <div class="slide">
+            <h1>Homework</h1>
+    		<p>Turn in your homework by emailimg it to me at <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a> using the convention <var>lastnameFirstname_assignment3.zip</var>.</p>
+        </div>
+
+		<div class="slide">
+			<h1>Weekly Happenings</h1>
+			<ul>
+
+			</ul>
+		</div>
+        
+        <div class="slide">
+            <h1><code>$().animate()</code> with Positioning</h1>
+            <p>We should play with some animation. (<a href="inclass/animate.html">inclass/animate.html</a>)</p>
+        </div>
+        
+		<div class="slide title">
+			<h1>Hackathon</h1>
+            <h2><a href="inclass/gallery.html">Image Gallery</a></h2>
+		</div>
+
+		<div class="slide">
+			<h1>Events</h1>
+			<ul>
+				<li>jQuery has extensive support for events beyond what we've played with, including the ability to bind multiple events, unbind events, and trigger custom events.</li>
+				<li>We can utilize the bind() and trigger() methods for these advanced uses.</li>
+				<li>You can use the optional <var>data</var> parameter of the bind method to pass along data into the event.data scope.</li>
+				<li>All jQuery objects can call any custom event.</li>
+				<li>Let's look at the <a href="inclass/events.html">Events script</a>.</li>
+			</ul>
+		</div>
+
+        <div class="slide">
+        	<h1>JavaScript Best Practices</h1>
+			<ul>
+				<li>Google has released their <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">JavaScript Style Guide</a> and it's full of good advice!</li>
+				<li>We'll take a look at some of them, but you should become familiar with most of them.</li>
+			</ul>
+		</div>
+			
+		<div class="slide">
+			<h1>Always Use Semicolons</h1>
+			<pre class="brush: js">MyClass.prototype.myMethod = function() {
   return 42;
 }  // No semicolon here.
 
@@ -73,76 +91,80 @@ var x = {
   'j': 2
 }  // No semicolon here.
 
-// 2.  Trying to do one thing on Internet Explorer and another on Firefox.
-// I know you'd never write code like this, but throw me a bone.
 [normalVersion, ffVersion][isIE]();
 
 var THINGS_TO_EAT = [apples, oysters, sprayOnCheese]  // No semicolon here.
 
-// 3. conditional execution a la bash
--1 == resultOfOperation() || die();</code></pre>
-		<ol>
-			<li>JavaScript error - first the function returning 42 is called with the second function as a parameter, then the number 42 is "called" resulting in an error.</li>
-			<li>You will most likely get a 'no such property in undefined' error at runtime as it tries to call x[ffVersion][isIE]().</li>
-			<li>die is called unless resultOfOperation() is NaN and THINGS_TO_EAT gets assigned the result of die().</li>
-		</ol>
+-1 == resultOfOperation() || die();</pre>
+		</div>
 		
-		<h2>Do Not Use Multiline String Literals</h2>
-		<p>The whitespace at the beginning of each line can't be safely stripped at compile time; whitespace after the slash will result in tricky errors; and while most script engines support this, it is not part of ECMAScript.</p>
-		<pre><code class="javascript">var myString = 'A rather long string of English text, an error message \
-                actually that just keeps going and going -- an error \
-                message to make the Energizer bunny blush (right through \
-                those Schwarzenegger shades)! Where was I? Oh yes, \
-                you\'ve got an error and all the extraneous whitespace is \
-                just gravy.  Have a nice day.';</code></pre>
+		<div class="slide">
+			<h1>Do Not Use Multiline String Literals</h1>
+			<p>The whitespace at the beginning of each line can't be safely stripped at compile time; whitespace after the slash will result in tricky errors; and while most script engines support this, it is not part of ECMAScript.</p>
+			<pre class="brush: js">var myString = 'A rather long string, an error message \
+actually that just keeps going and going -- an error \
+message to make the Energizer bunny blush (right through \
+those Schwarzenegger shades)! Where was I? Oh yes, \
+you\'ve got an error and all the extraneous whitespace is \
+just gravy.  Have a nice day.';</pre>
+		</div>
 
-		<h2>Do Not Use IE Conditional Comments</h2>
-		<p>They are often unnecessary and can break tools that are used to minify or compile your JavaScript.</p>
-		<pre><code class="javascript">var f = function () {
-    /*@cc_on if (@_jscript) { return 2* @*/  3; /*@ } @*/
-};</code></pre>
-				
-		<h2>JavaScript Style Rules</h2>
-		<ul>
-			<li>In general, style names in this fashion:
-				<ul>
-					<li><code>functionNamesLikeThis</code></li>
-					<li><code>variableNamesLikeThis</code></li>
-					<li><code>ClassNamesLikeThis</code> (e.g., Objects)</li>
-					<li><code>methodNamesLikeThis</code></li>
-					<li><code>SYMBOLIC_CONSTANTS_LIKE_THIS</code></li>
-				</ul>
-			</li>
-			<li>Prefer <code>'</code> over <code>"</code>.</li>
-			<li>Most importantly, <em>be consistent</em>.</li>
-		</ul>
-		
-		<h2><a href="http://jqueryui.com/">jQuery UI</a></h2>
-		<ul>
-			<li>jQuery UI provides handy widgets like a Datepicker, Dialog, Progressbar and Tabs.</li>
-			<li>Additionally, it provides Drag and Drop, Resizing and Sorting.</li>
-			<li>There are 12 separate features. You'll have 30 minutes to implement a widget/interaction and then we'll quickly demo what we came up with. I'd like you to team up and take one:
-				<ol>
-					<li><a href="http://jqueryui.com/demos/draggable">Draggable</a> &amp; <a href="http://jqueryui.com/demos/droppable">Droppable</a></li>
-					<li><a href="http://jqueryui.com/demos/resizable">Resizable</a></li>
-					<li><a href="http://jqueryui.com/demos/selectable">Selectable</a></li>
-					<li><a href="http://jqueryui.com/demos/sortable">Sortable</a></li>
-					<li><a href="http://jqueryui.com/demos/accordion">Accordion</a></li>
-					<li><a href="http://jqueryui.com/demos/autocomplete">Autocomplete</a></li>
-					<li><a href="http://jqueryui.com/demos/button">Button</a></li>
-					<li><a href="http://jqueryui.com/demos/datepicker">Datepicker</a></li>
-					<li><a href="http://jqueryui.com/demos/dialog">Dialog</a></li>
-					<li><a href="http://jqueryui.com/demos/progressbar">Progressbar</a></li>
-					<li><a href="http://jqueryui.com/demos/slider">Slider</a></li>
-					<li><a href="http://jqueryui.com/demos/tabs">Tabs</a></li>
-				</ol>
-			</li>
-		</ul>
-		
-		<h2>Homework</h2>
-		<ul>
-			<li><a href="homework.html">Midterm Project</a></li>
-		</ul>
-		
+		<div class="slide">
+			<h1>Don't use IE Conditional Compilation</h1>
+			<p>They are often unnecessary and can break tools that are used to minify your JavaScript.</p>
+			<pre class="brush: js">var f = function () {
+	/*@cc_on if (@_jscript) { return 2* @*/  3; /*@ } @*/
+};</pre>
+		</div>
+        
+        <div class="slide">
+			<h1>JavaScript Style Rules</h1>
+			<ul>
+				<li>In general, style names in this fashion:
+					<ul>
+						<li><code>functionNamesLikeThis</code></li>
+						<li><code>variableNamesLikeThis</code></li>
+						<li><code>ClassNamesLikeThis</code> (e.g., Objects)</li>
+						<li><code>methodNamesLikeThis</code></li>
+						<li><code>SYMBOLIC_CONSTANTS_LIKE_THIS</code></li>
+					</ul>
+				</li>
+				<li>Prefer <code>'</code> over <code>"</code>.</li>
+				<li>Most importantly: <em>be consistent</em>.</li>
+			</ul>
+		</div>
+
+        <div class="slide title">
+    		<h1>The End</h1>
+			<h2>The <a href="homework.html">Homework</a></h2>
+		</div>
+
+        <div class="layout" data-name="title">
+            <content></content>
+            <div class="footer">
+                <span class="left">Peter Wooley</span>
+                <span class="right">WDIM355A</span>
+                <span class="left"><a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim355.heroku.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim355">on GitHub</a>)</span>
+                <hr class="defloat" />
+            </div>
+        </div>
+
+        <div class="layout nofooter" data-name="default">
+            <content></content>
+        </div>
+    
+		<!-- Common Scripts -->
+		<script src="scripts/jquery.noisy.min.js"></script>
+		<script src="scripts/index.js"></script>
+        
+        <script>
+            $("#jqueryTraversal").submit(function() {
+                var val = $("#jQueryQuery").val();
+                $.alert("$(\"" + val + "\").toggleClass( \"highlight\" );");
+                $(val).toggleClass("highlight");
+                return false;
+            });
+        </script>
 	</body>
 </html>

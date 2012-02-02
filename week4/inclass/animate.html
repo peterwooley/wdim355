@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Animate with Positioning</title>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+		<script>
+            // Animate some stuff!
+		</script>
+        
+        <style>
+            body { background: black; margin:30px; }
+            
+            #stage {
+                margin:0 auto;
+                border:10px solid white;
+                position:relative;
+                overflow:hidden;
+            }
+        
+            #stage,
+            #stage div {
+                width:500px;
+                height:250px;
+            }
+            
+            #stage div {
+                position:absolute;
+                top:0;
+                left:0;
+            }
+            
+            #first {
+                background:#900;
+                /*background-image:url(http://placekitten.com/500/250);*/
+            }
+            
+            #second {
+                background:grey;
+                /*background-image:url(http://placekitten.com/g/500/250);*/
+            }
+            
+        </style>
+	</head>
+	<body>
+		<div id="stage">
+            <div id="first"></div>
+            <div id="second"></div>
+        </div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
