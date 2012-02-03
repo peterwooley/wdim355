@@ -1,42 +1,36 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
     <head>
     	<meta charset="utf-8">
-		<title>WDIM355 Client-Side Scripting, Week 3 Homework</title>
+		<title>WDIM355 Client-Side Scripting, Midterm Project</title>
         <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
 		<link rel="stylesheet" href="styles/common.css" />
 	</head>
 	<body>
 		<div id="header">
 			<h1>WDIM355 Client-Side Scripting <span>with Peter Wooley</span></h1>
-			<p class="tagline">Homework: <em>Assignment 3</em>, due Week 4.</p>
+			<p class="tagline">Homework: <em>Midterm Project</em>, due Week 5</p>
 		</div>
 		
-		<p>Please turn in your files in a .zip file, using the following naming convention: <var>lastnameFirstname_assignment3.zip</var></p>
-
+		<p>Please turn in your files in a .zip file, using the following naming convention: <var>lastnameFirstname_midterm.zip</var></p>
+		
+		<h2>Flickr Gallery</h2>
 		<ul>
-			<li>Create a JavaScript Web Application that accepts a form submission of a textarea and appends the content to a reverse chronological sorted list of messages (Yeah, like Twitter).</li>
-			<li>The UI should have, at least, a title, textarea and submit button, and reverse chronological list of previous messages.</li>
+			<li>Create a JavaScript Web Application that allows a user to search for images on Flickr by tag name and display them in a gallery.</li>
+			<li>The UI should allow a user to enter a tag (or multiple tags using a comma-separated list) into an input field.</li>
 			<li>The App should function similarly:
 				<ul>
-					<li>The user types in their message, hits submit, and the message is added to the top of the messages list.</li>
-					<li>When a message is submitted the form should be emptied.</li>
-					<li>At any time, a user should be able to delete an old message.</li>
+					<li>The user types in a Flickr tag they're looking for.</li>
+					<li>The images are presented to them in a gallery-format (How the gallery works is up to you!).</li>
+					<li>At any time, a user should be able to change their tag list and get an updated gallery.</li>
 				</ul>
 			</li>
-			<li>Tip: Create a single object that binds events to the form submission utlizing jQuery, other frameworks, or vanilla DOM access.</li>
-			<li>Tip: Utilize a Message object that is stored in the main App object, which allows for the deletion of the message from the UI.</li>
-		</ul>
-		
-		<h4>Extra Credit (20% Bonus):</h4>
-		<ul>
-			<li>Utilize the Login App we created in-class to add login capabilities to the Application.</li>
-		</ul>
-		
-		<h4>Extra Extra Credit (30% Bonus):</h4>
-		<ul>
-			<li>Implement Ajax functionality to store previous messages, so users can login and see their old messages after a page refresh.</li>
-		</ul>
-		
+		</ul>	
+        
+        <h3>Considersations</h3>
+        <ul>
+            <li>The formatting of your code and overall user experience of your app will be factored into your grade.</li>
+            <li>You will present your app to the class next, so be prepared to walk us through it and show us your favorite bit of code.</li>
+        </ul>
 	</body>
 </html>
