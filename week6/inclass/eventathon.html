@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Eventathon</title>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+		<script>
+			$(function() {
+				/**
+				 * Eventathon
+				 * With a partner, complete the following task:
+				 *
+				 * Below, three object constructors are defined and instantiated.
+				 * The ClickWidget fires a custom event ("cw-fired") when it is clicked
+				 * and MouseMoveWidget fires a custom event ("mmw-fired") when the mouse
+				 * is moved over it. The EventTracker's job is to keep a count of
+				 * when either of these events are fired.
+				 *
+				 * EventTracker keeps count of the events fired (in `eventCount`) and
+				 * shows the count in this.div. It's your job to write the code that
+				 * runs an event handler whenever the ClickWidget or MouseMoveWidget
+				 * fire their custom events. In that event handler, you should increment
+				 * the eventCount and update the div to display the new count.
+				 *
+				 * Ensure you only add code to the EventTracker object constructor
+				 * where it is noted.
+				 */
+
+				var EventTracker = function() {
+					var self = this,
+						eventCount = 0;
+
+					this.div = $("<div>")
+						.addClass("event-tracker")
+						.text(eventCount)
+						.appendTo("body");
+
+
+					// Write the code to count all custom events triggered
+					// (that is, "cw-fired" and "mmw-fired")
+					// and update the number shown in self.div
+					// *** ONLY ADD CODE BELOW ***
+
+
+
+					// *** ONLY ADD CODE ABOVE ***
+				}
+
+				var ClickWidget = function() {
+					$("<div>")
+						.addClass("click-widget")
+						.text("Click Me")
+						.appendTo("body")
+						.click(function() {
+							// When the div is clicked, trigger()
+							$(document).trigger("cw-fired");
+						});
+				}
+
+				var MouseMoveWidget = function() {
+					$("<div>")
+						.addClass("mousemove-widget")
+						.text("Move Mouse Over Me")
+						.appendTo("body")
+						.mousemove(function() {
+							// When the mouse moves over the div, trigger()
+							$(document).trigger("mmw-fired");
+						});
+				}
+
+				new EventTracker();
+				new ClickWidget();
+				new MouseMoveWidget();
+
+            });
+		</script>
+
+		<style>
+			.event-tracker:before {
+				content: "Event Count: ";
+			}
+
+			.event-tracker,
+			.click-widget,
+			.mousemove-widget {
+				color:white;
+				font-family: Helvetica, sans-serif;
+				font-weight:bold;
+				background: #777;
+				margin:10px;
+				text-shadow:0 1px 1px rgba(0,0,0,.3);
+				padding:5px;
+				width:200px;
+
+			}
+
+			.click-widget {
+				width:200px;
+				height:100px;
+				margin:10px;
+				background:#123456;
+			}
+
+			.mousemove-widget {
+				width:200px; height:100px;
+				margin:10px;
+				background:#900;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

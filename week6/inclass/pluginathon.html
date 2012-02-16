@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Pluginathon</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>	
+		<script>
+			/**
+			 * With a partner, create a jQuery plugin that sets a random background color
+			 * on all selected element.
+			 */
+			(function($){
+				$.fn.randomize = function() {
+					// Loop over all elements in the collection (`this`),
+					// then set a random background color.
+					
+					// Make sure to always return this; as it allows for jQuery's Chainability!
+					return this;
+				};
+			}(jQuery));
+
+
+			// Use the jQuery Plugin
+			$(function() {
+				$(".random").randomize();
+			});
+		</script>
+		<style>
+			div {
+				background: #999;
+				float:left;
+				width:100px;
+				height:100px;
+				margin:5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div class="random"></div>
+		<div></div>
+		<div class="random"></div>
+		<div class="random"></div>
+		<div></div>
+		<div></div>
+		<div class="random"></div>
+		<div></div>
+		<div class="random"></div>
+		<div class="random"></div>
+		<div class="random"></div>
+		<div></div>
+		<div></div>
+		<div class="random"></div>
+	</body>
+</html>

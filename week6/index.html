@@ -1,143 +1,131 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>WDIM355 Client-Side Scripting, Week 6</title>
-		<script src="scripts/highlight/highlight.js"></script>
-		<script>
-			hljs.initHighlightingOnLoad('html', 'javascript');
-		</script>
-		<link rel="stylesheet" href="styles/highlight.css" />
-		<link rel="stylesheet" href="styles/common.css" media="all" />
-		<link rel="stylesheet" href="styles/projection.css" media="projection" />
-	</head>
-	<body>
-		<div id="header">
-			<h1>WDIM355 Client-Side Scripting</h1>
-			<p class="tagline">The jQuery Class, Week 6</p>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM355 Client-Side Scripting &mdash; Week 6</title>
+        <!-- Slippy core file and dependencies -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCoffeeScript.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
+		<!-- Common Styles -->
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+        
+        <style>
+            .highlight { background: yellow !important; }
+        </style>
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM355<br />Client-Side Scripting</h1>
+			<h2>Week 6</h2>
+        </div>
+
+		<div class="slide">
+			<h1>Events</h1>
+			<ul>
+				<li>jQuery has extensive support for events beyond what we've played with, including the ability to bind multiple events, unbind events, and trigger custom events.</li>
+				<li>We can utilize the bind() and trigger() methods for these advanced uses.</li>
+				<li>You can use the optional <var>data</var> parameter of the bind method to pass along data into the event.data scope.</li>
+				<li>All jQuery objects can call any custom event.</li>
+				<li>Let's look at the <a href="inclass/events.html">Events script</a>.</li>
+			</ul>
 		</div>
 		
-		<h2>Weekly Happenings</h2>
-		<ul>
-			<li>jQuery plugin <a href="http://www.steamdev.com/zclip/">zClip</a> that allows you to copy to clipboard (using Flash) was discovered!</li>
-			<li>Anything else?</li>
-		</ul>
+		<div class="slide">
+			<h1>Eventathon</h1>
+			<p>Team up with a partner of your choice and complete the hackathon in <a href="inclass/eventathon.html">inclass/eventathon.html</a>.</p>
+		</div>
 
-		<h2>jQuery + Other Libraries</h2>
-		<ul>
-			<li>When working with another library that makes use of the <code>$</code> function, you can have jQuery run in <a href="http://api.jquery.com/jQuery.noConflict/">No Conflict mode</a>, so it will reliquish control of the <code>$</code> function back to the other library:
-				<pre><code class="javascript">jQuery.noConflict();
-// Now, $() is no longer the jQuery function, but you can still access jQuery
-// using the jQuery variable: jQuery("#selector")
+		<div class="slide">
+			<h1>How I Debug</h1>
+			<ol>
+				<li>Check for errors in the browser.</li>
+				<li>Step through the code in the browser's debugger.</li>
+				<li>Add console.error() messages until I see where the code stops working.</li>
+			</ol>
+			<p>Let's <a href="examples/debugging.html">look at an example that highlights each of these problems</a>.</li>
+		</div>
 
-// In the case where you have multiple jQuery versions on the same page, you
-// can have the 2nd version of jQuery relinquish control of the jQuery
-// variable to the 1st version and assign the 2nd version to a custom variable.
-var jQueryTwo = jQuery.noConflict(true);</code></pre>
-			</li>
-		</ul>
+		<div class="slide">
+			<h1>Extending jQuery</h1>
+			<p>jQuery Plugins are delightfully simple to create.</p>
+			<p>You can learn all the ins and outs in <a href="http://docs.jquery.com/Plugins/Authoring">jQuery's Plugin Documentation.</a></p>
+			<pre class="brush: js">// Create our jQuery Gallerize Plugin
+(function($){
+	$.fn.gallerize = function() {
+		$.each(this, function(i, item) {
+			var $item = $(item);	
+			$item.find("li").hide().end().find(":first").show();
 
-		<h2>My Development Environments</h2>
-		<ul>
-			<li>For text editors, I use:
-				<ul>
-					<li><a href="http://eclipse.org">Eclipse</a></li>
-					<li><a href="http://www.vim.org/">Vim</a> (<a href="http://www.vim.org/">GVim</a>, <a href="http://code.google.com/p/macvim/">MacVim</a>)</li>
-					<li><a href="http://notepad-plus-plus.org/">Notepad++</a></li>
-					<li><a href="http://developer.apple.com/technologies/tools/xcode.html">XCode</a></li>
-				</ul>
-			</li>
-			<li>I still develop in Firefox, but am moving to Chrome. Some of my co-workers still use IE8 as their primarly development Browser&mdash;this kills me.</li>
-			<li>I test in IE7-IE9; Firefox 3.6 &amp; 4.0; Chrome Dev &amp; Chromium; Safari 5. Occasionally, I open up Lynx to see how pages render.</li>
-			<li>At work, SVN is the only supported Version Control System, though I use git for my own small projects at both work and home. I admit that I still suck at git, but Git Immersion helps.</li>
-		</ul>
+			$item.click(function() {
+				if ($item.find("li:visible").next().length) {
+					$item.find("li:visible").hide().next().show();
+				} else {
+					$item.find("li").hide().end().find(":first").show();
+				}
+			});
+		});
 		
-		<h2>More on My Development Environment</h2>
-		<ul>
-			<li>The languages I use most often are JavaScript (browser-based as well as server-side in node.js), Java, and Objective-C. For me, Vim is great for JavaScript and general Web Development, Notepad++ is great for presenting, Eclipse is great for <em>ginormous</em> projects (especially Java projects), and XCode is usable because of its integration with Interface Builder.</li>
-			<li>Input-wise, I use the <a href="http://www.logitech.com/en-us/keyboards/keyboard-mice-combos/devices/7306">Logitech Wave Combo</a>. When I moved to McAfee, it was one of my requirements before I agreed to take the job. It's the first keyboard and mouse set I've ever truly enjoyed using.</li>
-			<li>Monitor-wise, I appreciate two monitors. Since 2007, to do anything non-trivial, I've designed and developed on a box with dual screens.I'll do anything I can do to make sure the screens are the exact same model.</li>
-			<li>OS-wise, I enjoy OS X more than Windows, though Windows 7 is delightful. I've yet to purchase a Mac Desktop, though I will always, <em>always</em> purchase Mac Laptops and only Mac Laptops.</li>
-		</ul>
+		return this;
+	};
+}(jQuery));</pre>
+			<p>Let's <a href="inclass/plugin/index.html">use it and dissect what it's doing.</a></p>
+		</div>
 
-		<h2>My Development Environment, Illustrated</h2>
-		<ul>
-			<li>Here's <a href="assets/env_office.jpg">my current screen setup at work</a>.</li>
-		</ul>
+		<div class="slide">
+			<h1>Pluginathon</h1>
+			<p>Team up with a partner of your choice and complete the plugin hackathon in <a href="inclass/pluginathon.html">inclass/pluginathon</a>.</p>
+		</div>
 
-		<h2>My Debugging Process</h2>
-		<p>Problem: My code isn't running!</p>
-		<ol>
-			<li>Check for errors in Firefox's Error Console (Tools &raquo; Error Console)
-				<ul>
-					<li>Clear the console.</li>
-					<li>Refresh the page with the broken JavaScript.</li>
-					<li>Observe the code not working.</li>
-					<li>Switch back to the Error Console and check for errors.</li>
-					<li>If there's an error listed, find it, fix it, check if that fixed it.</li>
-				</ul>
-			</li>
-			<li>If there are no errors, I pop open Firebug's Script Panel.
-				<ul>
-					<li>Enable the Script Panel if it's not already enabled.</li>
-					<li>Set a breakpoint on a line I would expect to execute.</li>
-					<li>Refresh the page or cause the event that should trigger the code.</li>
-					<li>If the breakpoint is triggered, I step through the code until it breaks, adding new breakpoints if necessary.</li>
-					<li>If the breakpoint is not triggered, I add a new breakpoint earlier and earlier in the execution cycle, even back to the first line in the first &lt;script /&gt;.</li>
-				</ul>
-			</li>
-			<li>Failing the first two (which is really, really rare), I check to ensure that JavaScript is enabled in my browser, restart the browser, and pray to the JavaScript gods.</li>
-			<li>If all of those fail, I add an alert() to the very first line of my script and if it fires, I slowly move it down, line by line, until I find the broken line.</li>
-		</ol>
+		<div class="slide">
+			<h1>Mobile Development with jQuery Mobile</h1>
+			<p>Mobile Web Development is a bit of a hot topic.</p>
+			<p><a href="http://jquerymobile.com">jQuery Mobile</a> is an appropriate framework for us to use, as it's being built by many folks that built jQuery. I've <a href="examples/mybrary/index.html">created a demo for us to play with</a>.</p>
+		</div>
 
-		<h2>Extending jQuery</h2>
-		<ul>
-			<li>Creating Plugins for JavaScript is as easy as adding a method to an Object.</li>
-			<li>The simplest plugin is only a few lines and is available in <a href="http://docs.jquery.com/Plugins/Authoring">jQuery's Plugin Documentation.</a></li>
-			<li>Here is a jQuery plugin that locks a jQuery collection's dimensions:
-				<pre><code class="javascript">(function($){
-  $.fn.lockDimensions = function(type) {  
-    this.each(function() {
-      var $this = $(this);
+		<div class="slide">
+			<h1>Unit Testing with Jasmine</h1>
+			<p>We'll have lots of fun playing with Unit Testing next week.</p>
+		</div>
 
-      if (!type || type == 'width') {
-        $this.width($this.width());
-      }
-      if (!type || type == 'height') {
-        $this.height($this.height());
-      }
-    });
-	
-	return this;
-  };
-}(jQuery));</code></pre>
-			</li>
-			<li>Let's <a href="inclass/plugin.html">use it and dissect what it's doing.</a></li>
-		</ul> 
-		
-		<h2>Mobile Development with jQuery</h2>
-		<ul>
-			<li>Mobile Web Development is a bit of a hot topic.</li>
-			<li>There are three front-runners: <a href="http://www.sencha.com/products/touch/">Sencha Touch</a>, <a href="http://jquerymobile.com/">jQuery Mobile</a> and <a href="http://www.winktoolkit.org/">Wink Toolkit</a>.</li>
-			<li>jQuery Mobile is the most appropriate for us, as it's being built by many folks that build jQuery. I've <a href="examples/mybrary/index.html">created a demo for us to play with</a>.</li>
-			<li>Sencha Touch is also important. Sencha Touch 1.0 is now free (released under the GPL) or availble for purchase (so it can be used for non-GPL projects). <a href="examples/sencha-touch/examples/kiva/index.html">Let's take a look at their demo</a> and see how it works.</li>
-		</ul>
+        <div class="slide title">
+    		<h1>All Done!</h1>
+			<h2><a href="homework.html">Homework!</a></h2>
+		</div>
 
-		<h2>Unit Testing with Jasmine</h2>
-		<ul>
-			<li>Unit Testing involves evaluating the smallest pieces of a larger system to ensure they work correctly.</li>
-			<li>Typically, the 'units' that are tested in JavaScript are methods of objects.</li>
-			<li>Frameworks exist that allow you to automate tests, like <a href="http://pivotal.github.com/jasmine/">Jasmine</a>.</li>
-			<li>Technically, Jasmine is a Behavior-driven development framework (BDD), but it works very similarly to other unit testing frameworks.</li>
-			<li>With Jasmine, we can <a href="examples/jasmine">write our unit tests</a>!</li>
-		</ul>
+        <div class="layout" data-name="title">
+            <content></content>
+            <div class="footer">
+                <span class="left">Peter Wooley</span>
+                <span class="right">WDIM355A</span>
+                <span class="left"><a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim355.heroku.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim355">on GitHub</a>)</span>
+                <hr class="defloat" />
+            </div>
+        </div>
 
-		<h2>Done!</h2>
-		<ul>
-			<li>
-			    <a href="homework.html">Homework!</a>
-			</li>
-		</ul>
-		
+        <div class="layout nofooter" data-name="default">
+            <content></content>
+        </div>
+    
+		<!-- Common Scripts -->
+		<script src="scripts/jquery.noisy.min.js"></script>
+		<script src="scripts/index.js"></script>
 	</body>
 </html>
