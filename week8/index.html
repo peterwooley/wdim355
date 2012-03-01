@@ -1,53 +1,118 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>WDIM355 Client-Side Scripting, Week 8</title>
-		<script src="scripts/highlight/highlight.js"></script>
-		<script>
-			hljs.initHighlightingOnLoad('html', 'javascript');
-		</script>
-		<link rel="stylesheet" href="styles/highlight.css" />
-		<link rel="stylesheet" href="styles/common.css" media="all" />
-		<link rel="stylesheet" href="styles/projection.css" media="projection" />
-	</head>
-	<body>
-		<div id="header">
-			<h1>WDIM355 Client-Side Scripting</h1>
-			<p class="tagline">The jQuery Class, Week 8</p>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WDIM355 Client-Side Scripting &mdash; Week 8</title>
+        <!-- Slippy core file and dependencies -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+        <script type="text/javascript" src="slippy/src/slippy.js"></script>
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting brushes, remove those you don't need -->
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCoffeeScript.js"></script>
+        <!-- Syntax highlighting styles-->
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+
+
+		<!-- Common Styles -->
+		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+        
+        <style>
+            .highlight { background: yellow !important; }
+        </style>
+    </head>
+    <body>
+        <div class="slide title" data-layout="title">
+            <h1>WDIM355<br />Client-Side Scripting</h1>
+			<h2>Week 8</h2>
+        </div>
+
+		<div class="slide">
+			<h1>Weekly Happenings</h1>
+			<ul>
+				<li><a href="http://jpg.to/">jpg.to</a> &mdash; Load <a href="http://disneyland.jpg.to/r">random pictures of anything</a>.</li>
+				<li><a href="http://codebomber.com/jquery/resizer/">Resizer</a> &mdash; A responsive design bookmarklet.</li>
+				<li><a href="https://github.com/freqDec/slabText/">slabText</a> &mdash; Big, bold &amp; responsive headlines.</li>
+			</ul>
 		</div>
 		
-		<h2>Weekly Happenings</h2>
-		<ul>
-			<li><a href="http://rss.slashdot.org/~r/Slashdot/slashdot/~3/NL9a1fVNBCA/Intel-Completes-McAfee-Acquisition">Intel <em>finally</em> acquired McAfee!</a></li>
-			<li><a href="http://apple.com/ipad">iPad 2</a>&mdash;I'll probably get one. You?</li>
-			<li>
-			    <a href="">jFormer</a>&mdash; A jQuery Form Pluging with all the fixins.
-			</li>
-			<li>
-			    <a href="http://placekitten.com/">PlaceKitten</a>&mdash;Simple service for using pictures of kittens as placeholders in your mockups.
-			</li>
-			<li>
-			    <a href="http://addyosmani.com/blog/large-scale-jquery/">Building large scale jQuery applications</a> provides a lot of guidance on building a large scale jQuery application as well as a ton of links to other great JavaScript libraries.
-			</li>
-			<li>
-			    <a href="http://littlebigdetails.com/">LittleBigDetails</a> captures some amazing UI niceties for you to enjoy.
-			</li>
-			<li>Anything else?</li>
-		</ul>
+        <div class="slide title">
+    		<h1>Final Project Proposals</h1>
+			<h2>Let's present our final project ideas!</h2>
+		</div>
 
-		<h2>Final Project Proposals</h2>
-		<ul>
-			<li>Turn in your proposal to <code>S:/Data/wdim355/proposals/</code> or email <a href="mailto:peterwooley@gmail.com">peterwooley@gmail.com</a>.</li>
-			<li>We'll each take a couple of minutes to explain who's working together and what the project is.</li>
-		</ul>
+		<div class="slide">
+			<h1>Unit Testing with Mocha</h1>
+			<p>We'll use Mocha to learn about testing.</p>
+			<p>Open up <a href="examples/mocha/test/index.html">examples/mocha/test/index.html</a> to see Mocha in action.</p>
+		</div>
 
-		<h2>Final Project!</h2>
-		<ul>
-			<li>
-			    <a href="homework.html">Homework is just the final project!</a>
-			</li>
-		</ul>
+		<div class="slide">
+			<h1>Test-Driven Development</h1>
+			<p><a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> starts with writing tests and then moves onto coding.</p>
+			<p>The development cycle is:</p>
+			<ol>
+				<li>Write tests that fail.</li>
+				<li>Write code that makes the tests succeed.</li>
+				<li>Run tests to ensure they succeed.</li>
+				<li>Repeat.</li>
+			</ol>
+		</div>
+
+		<div class="slide">
+			<h1>TDD of Login Module</h1>
+			<p>We'll start by walking through the creation of a login module.</p>
+			<p>You can follow along in <a href="inclass/login/">inclass/login</a>.</p>
+		</div>
+
+		<div class="slide">
+			<h1>TDDathon</h1>
+			<p>Now, we'll try TDD in groups of 3 or 4.</p>
+			<p>The details are in <a href="inclass/train/">inclass/tain</a>.</p>
+		</div>
+
+		<div class="slide">
+			<h1>Introduction to Node</h1>
+			<p><a href="assets/node.js.pdf">node.js is pretty neat</a>.</p>
+			<p>After introducing it, I'll demo how it can be leveraged by we developers.</p>
+			<p>node.js Resources</p>
+			<ul>
+				<li><a href="http://nodejs.org">nodejs.org</a> &mdash; Download node.js and read the Docs.</li>
+				<li><a href="http://www.npmjs.org/">http://www.npmjs.org/</a> &mdash; Find modules to use.</li>
+				<li><a href="http://howtonode.org/">How To Node</a> &mdash; Learn how to use node.js!</li>
+				<li><a href="http://dailyjs.com/">DailyJS</a> &mdash; Learn more about node.js among other things!</li>
+		</div>
 		
+		<div class="slide title">
+			<h1>End</h1>
+		</div>
+
+        <div class="layout" data-name="title">
+            <content></content>
+            <div class="footer">
+                <span class="left">Peter Wooley</span>
+                <span class="right">WDIM355A</span>
+                <span class="left"><a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+                <span class="right"><a href="http://wdim355.heroku.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim355">on GitHub</a>)</span>
+                <hr class="defloat" />
+            </div>
+        </div>
+
+        <div class="layout nofooter" data-name="default">
+            <content></content>
+        </div>
+    
+		<!-- Common Scripts -->
+		<script src="scripts/jquery.noisy.min.js"></script>
+		<script src="scripts/index.js"></script>
 	</body>
 </html>
