@@ -8,6 +8,6 @@
         "web": "http://wdim355.heroku.com"
     }],
     "dependencies": {
-       "node-static": "0.5.9"
+       "node-static": "*"
     }
 }
