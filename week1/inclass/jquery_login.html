@@ -25,22 +25,6 @@
 			//   away from the current page. (See http://api.jquery.com/event.preventDefault/)
 			// * Make use of the hide() and show() methods, and play around with
 			//   the parameters for both (e.g., "slow", "fast", 100, etc.)
-
-			$(document).ready(function() {
-                $("#login").submit(function() {
-                    var username = $("#username").val();
-                    var password = $("#password").val();
-                    
-                    if(username === "admin" && password === "password") {
-                        $("#login").hide();
-                        $("#content").show();
-                    } else {
-                        alert("You're wrong!");
-                    }
-                    
-                    return false;
-                });
-			});
 		</script>
 	</head>
 	<body>

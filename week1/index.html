@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <title>WDIM355 Client-Side Scripting &mdash; Week 1</title>
         <!-- Slippy core file and dependencies -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
         <script type="text/javascript" src="slippy/src/slippy.js"></script>
         <!-- Slippy structural styles -->
@@ -40,8 +40,7 @@
             <ul>
                 <li>Been hacking JavaScript since 2005.</li>
                 <li>Write Java and JavaScript from 9:00-5:00.</li>
-                <li>Write JavaScript using node.js from 5:00-9:00.</li>
-                <li>My favorite games are: Portal, WoW, Legend of Zelda: Ocarina of Time, &amp; Munchkin.</li>
+                <li>Just got a second son (Jonah) 5 days ago.</li>
             </ul>
         </div>
         
@@ -68,7 +67,7 @@
         
         <div class="slide title">
             <h1>Getting Started</h1>
-        	<h2><a href="WI12_WDIM355_A.pdf">The Syllabus</a></h2>
+        	<h2><a href="SP_13_WDIM355_A.pdf">The Syllabus</a></h2>
         </div>
         
         <div class="slide">
@@ -81,7 +80,7 @@
         </div>
         
         <div class="slide">
-            <h1>Epic JavaScript, AKA Web 2.0</h1>
+            <h1>Web 2.0</h1>
     			<p><blockquote>"Basically, what 'Ajax' means is 'Javascript now works.' And that in turn means that web-based applications can now be made to work much more like desktop ones." Paul Graham, <a href="http://www.paulgraham.com/web20.html">Nov. 2005</a></blockquote></p>
                 <p><blockquote>"We now have several examples to prove that amateurs can surpass professionals, when they have the right kind of system to channel their efforts. Wikipedia may be the most famous." Paul Graham, <a href="http://www.paulgraham.com/web20.html">Nov. 2005</a></blockquote></p>
         </div>
@@ -89,11 +88,10 @@
         <div class="slide">
             <h1>What can it do now?</h1>
         	<ul>
-        		<li><a href="http://www.youtube.com/watch?v=fyfu4OwjUEI">Quake II.</a></li>
-    			<li><a href="http://benfirshman.com/projects/jsnes/">JSNES (NES Emulator)</a></li>
-                <li><a href="http://pasjans-online.pl/">Solitaire</a></li>
-                <li><a href="http://arcade.rawrbitrary.com/mario/">Infinite Mario</a></li>
-                <li><a href="http://c9.io/">Cloud9IDE</a></li>
+        		<li><a href="http://blog.mozilla.org/blog/2013/03/27/mozilla-is-unlocking-the-power-of-the-web-as-a-platform-for-gaming/">Unreal Engine 3</a></li>
+            <li><a href="http://benfirshman.com/projects/jsnes/">JSNES (NES Emulator)</a></li>
+            <li><a href="http://arcade.rawrbitrary.com/mario/">Infinite Mario</a></li>
+            <li><a href="http://c9.io/">Cloud9IDE</a></li>
     		</ul>
         </div>
         
@@ -174,153 +172,8 @@ $("h1").addClass("highlight");
     		</ul>
         </div>
   
-        <div class="slide">
-          	<h1>Asyncronous JavaScript and XML</h1>
-    		<ul>
-    			<li>First off, what it stands for is a bit of a misnomer, which we'll see.</li>
-    			<li>For the above reason, I'll be writing it as "Ajax", not all capitalized.</li>
-    			<li>There's a lot of hype, <a href="http://marc.info/?l=php-general&amp;m=112198633625636&amp;w=2">but it's pretty basic</a>.</li>
-    			<li>Let's see a barebones example in <a href="examples/ajax/ajax.html">examples/ajax/ajax.html</a>.
-    		</ul>
-        </div>
-        
-        <div class="slide">
-            <h1>JSONP&mdash;JSON with Padding!</h1>
-        	<ul>
-    			<li><a href="http://www.json.org/">JSON</a> is a data-interchange format that is actually valid JavaScript.</li>
-    			<li>In order to get around Ajax domain limitations, <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">somebody came up with a great idea</a>.</li>
-    			<li>JSONP (basically) generates a new <code>&lt;script /&gt;</code> tag, and loads a remote <code>src</code> url.</li>
-    			<li>Based on the URL, the server then generates JSON and wraps it in a JavaScript function call.</li>
-    			<li>When the script is loaded, it executes the function and we have access to the data.</li>
-    			<li>Let's look at how we can <a href="examples/flickr.html">interact with Flickr</a> in this way.</li>
-    		</ul>
-        </div>
-        
-        <div class="slide">
-            <h1>Tagathon</h1>
-    		<ul>
-    			<li>Using <a href="examples/flickr.html">our Flickr example</a>, create an app that allows a user to search Flickr by tag and see the top 20 images.</li>
-                <li>Team up with your partner from the first hackathon.</li>
-    			<li>Make sure the app fulfills these requirements:
-                    <ol>
-                        <li>The user types a Flickr tag into a text box and hits the submit button.</li>
-        				<li>The top 20 images with that tag appear on the screen.</li>
-    					<li>At any time, the user should be able to change the text box and re-submit to get an updated gallery.</li>
-                    </ol>
-                </li>
-    		</ul>
-        </div>
-        
-        <div class="slide title">
-            <h1>Break?</h1>
-        </div>
-        
-        <div class="slide">
-            <h1>Everything's an Object</h1>
-            <p>JavaScript is an <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Language</a>.</p>
-            <p>Most values in JavaScript are objects, which means they can have properties and methods.</p>
-            <pre class="brush: js">console.log("What did she say?".length);
-console.log(["A", "B", "C"].join(" -> "));</pre>
-
-            <p>Arbitrary properties and methods can be created:</p>
-            <pre class="brush: js eval">var foo = {};
-foo.awesome = true;
-console.log(foo.awesome);
-
-var bar = ['All', 'Sorts', 'of', 'Values'];
-bar.howLongIsThisArray = function() {
-    return this.length;
-};
-alert(bar.howLongIsThisArray());
-        </div>
-        
-        <div class="slide">
-            <h1>Primitives vs. Constructors</h1>
-            <p>Primitive types, in JavaScript, are built-in, basic types, which have special chracter sequences to define them.</p>
-        	<pre class="brush: js">// Some Primitives
-var arr = [],
-    obj = {},
-    str = "",
-    bool = true;</pre>
-
-            <p>Most primitives also have Constructors, which are a formal way of creating objects. Concstructors make use of the <code>new</code> operator.</p>
-    		<pre class="brush: js">// Some Constructors
-var arr = new Array(),
-    obj = new Object(),
-    str = new String("""),
-    bool = new Boolean(true);</pre>
-    		<p>Personally, I rarely use constructors, as they are typically unnecessary bloat.</p>
-        </div>
-
-        <div class="slide">
-    		<h1><code>this</code></h1>
-
-            <ul>
-        		<li>When a function run, <code>this</code> is set to the global (window) object.</li>
-        		<li>The <code>window</code> object is called the global object because it contains all the global functions and variables. <br />(e.g., <code>window.console.log() === console.log()</code>)</li>
-
-        	</ul>
-            <pre class="brush: js">function foo() {
-    alert(this);
-}
-foo(); // alerts reference to window</pre>
-        </div>
-        
-        <div class="slide">
-            <h1><code>this</code> in a Method</h1>
-        	<ul>
-    			<li>Heading deeper down the rabbit hole, we come to the <em>method</em>.</li>
-
-    			<li>When a function is a <em>method</em> of an object and called, <code>this</code> behaves differently.</li>
-    			<li>Instead of <code>this</code> being a reference to the <code>window</code> object, it's a reference to the object of which it's a <em>method</em>.</li>
-
-    		</ul>
-    		<pre class="brush: js eval">var user = {
-	name: "Johnny Alabaster",
-	age: 43
-};
-user.getInfo = function() {
-    alert(this);
-    alert(this.name);
-    alert(this.age);
-};
-user.getInfo(); // alerts reference to user</pre>
-        </div>
-
-        <div class="slide">
-            <h1><code>this</code> as a Constructor</h1>
-        	<ul>
-
-    			<li>If your mind has yet to be blown, this will do it.</li>
-    			<li>When a function is called with the <code>new</code> operator, a new object <em>with the properties and methods of the function</em> is created and assigned to <code>this</code>.</li>
-    			<li>If a specific value is not returned from the function, then <code>this</code> will be returned.</li>
-
-    		</ul>
-    		<pre class="brush: js eval">function User(name, password) {
-	this.name = name;
-	this.password = password;
-
-	this.getInfo = function() {
-		alert(this.name);
-        alert(this.password);
-	};
-}
-var user1 = new User("peterwooley", "Freedom");
-var user2 = new User("thor", "HammerTime");
-
-// logs both users names and passwords
-user1.getInfo();
-user2.getInfo();</pre>
-        </div>
-
-        <div class="slide">
-            <h1>Huh?</h1>
-            <p>If <code>this</code> isn't clear, review the exercises from <a href="http://wdim262.herokuapp.com/week4/">the WDIM262 Week 4 Class notes</a>.
-        </div>
-  
-        <div class="slide title">
-    		<h1>Nearing the End</h1>
-			<h2>The <a href="homework.html">Homework</a>!</h2>
+    <div class="slide title">
+      <h1>No Homework this Week</h1>
 		</div>
   
 		<div class="slide title">

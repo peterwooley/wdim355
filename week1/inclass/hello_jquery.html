@@ -3,27 +3,11 @@
 	<head>
 		<title>Hello, jQuery!</title>
 		
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9/jquery.min.js"></script>
 		<script>
 			// Welcome to the world of jQuery
 			// The Script tag above includes a remote copy of jQuery,
 			// so we can start using it immediately.
-		    //window.onload = function() {
-		    //    alert(document.getElementById('header').innerHTML);
-            //}
-            
-            $(document).ready(function() {
-                //alert($("#header").html());
-                //$("ul")
-                //    .css({"-moz-transform":"rotate(45deg)"});
-                
-                var i = 0;
-                
-                setInterval(function() {
-                    $("ul").css("-moz-transform", "rotate(" + i + "deg)");
-                    i++;
-                }, 15);
-            });
             
 			// jQuery "simplifies how you traverse HTML documents, handle events,
 			// perform animations, and add Ajax interactions to your web pages."
@@ -33,7 +17,6 @@
 			// $(document).ready() vs. window.onload
 			
 			// jQuery Selectors
-            
 			
 			// Setting the text of an element (Change "jQuery" to "Hello, jQuery!")
 			
@@ -41,12 +24,6 @@
 			
 			// Stringing it all together (Chain a selector to an event handler, to an animation.)
 		</script>
-        <style>
-            ul {
-                background:red;
-                float:left;
-            }
-        </style>
 	</head>
 	<body>
 		<h1 id="header">jQuery</h1>
