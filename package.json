@@ -2,7 +2,7 @@
     "name": "wdim355",
     "description": "Class notes and assignments for AIPD's WDIM355 class.",
     "version": "1.0.0",
-    "contributers": [{
+    "contributors": [{
         "name": "Peter Wooley",
         "email": "peterwooley@gmail.com",
         "web": "http://wdim355.heroku.com"
