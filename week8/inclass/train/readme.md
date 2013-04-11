@@ -10,8 +10,8 @@ Your task is to create a Train object constructor that fulfills the following re
 
 ## Requirements
 The train object constructor should:
-* Provide a way fro the train's horn to be blown.
-* Be able to move forward and move background by a number of feet.
+* Provide a way for the train's horn to be blown.
+* Be able to move forward and move backward by a number of feet.
 
 ## API Sketch
 The API might look like:

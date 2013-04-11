@@ -3,19 +3,29 @@
 	<head>
 		<title>Hello, jQuery!</title>
 		
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script>
 			// Welcome to the world of jQuery
 			// The Script tag above includes a remote copy of jQuery,
 			// so we can start using it immediately.
+
             
 			// jQuery "simplifies how you traverse HTML documents, handle events,
 			// perform animations, and add Ajax interactions to your web pages."
 			
 			// The jQuery Function: $()
-			
+			var iAmABanana = jQuery;
+      //var wheee = $.noConflict()
+
 			// $(document).ready() vs. window.onload
-			
+      $(function() {
+        $("#header").mousemove(function() {
+          var rand = function() {
+            return Math.round(Math.random() * 255);
+          }
+          $(this).css("background", "rgb("+rand()+","+rand()+","+rand()+")");
+        });
+      });
 			// jQuery Selectors
 			
 			// Setting the text of an element (Change "jQuery" to "Hello, jQuery!")
