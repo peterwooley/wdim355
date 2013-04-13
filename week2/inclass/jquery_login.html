@@ -25,6 +25,38 @@
 			//   away from the current page. (See http://api.jquery.com/event.preventDefault/)
 			// * Make use of the hide() and show() methods, and play around with
 			//   the parameters for both (e.g., "slow", "fast", 100, etc.)
+      $(function() {
+        $("#login").submit(function(e) {
+          e.preventDefault();
+          var username = $("#username").val();
+          var password = $("#password").val();
+          
+
+          if(username === "admin" && password === "password") {
+            $(this).hide();
+            $("#content").show();
+          } else {
+          $("<div>")
+            .attr('id', 'whee')
+            .text("Please, try again! :-)")
+            .css({
+              "position": "absolute",
+              "top": 5,
+              "left": 5,
+              "right": 5,
+              "background": "yellow",
+              "font-size": 200,
+              "text-align": "center",
+              "text-transform": "uppercase"
+            })
+            .hide()
+            .appendTo('body')
+            .fadeIn(300)
+            .delay(500)
+            .fadeOut(300);
+          }
+        });
+      });
 		</script>
 	</head>
 	<body>

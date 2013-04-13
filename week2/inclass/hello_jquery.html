@@ -29,10 +29,18 @@
         });
         
         // Setting the text of an element (Change "jQuery" to "Hello, jQuery!")
+        $("#header").html("Hello, jQuery! <blink style='text-decoration:underline'>Hello!</blink>");
         
         // Creating event handlers (Create a click handler that prevents all links from leaving the page.)
+        $("a").click(function(e) {
+          e.preventDefault();
+          $(this).text("Your mom wears combat boots.");
+        });
         
         // Stringing it all together (Chain a selector to an event handler, to an animation.)
+        $("*")
+          .slideUp()
+          .slideDown().click(function(e) { $(this).html("&amp;"); e.stopPropagation(); });
       });
       
     </script>

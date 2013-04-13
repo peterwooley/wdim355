@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>New Images</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>
+      $(function() {
+        function MyPicture(url) {
+          this.source = url;
+
+          this.draw = function() {
+            // Use jQuery Here.
+            $("<img>")
+              .attr('src', this.source)
+              .appendTo('body');
+          };
+        };
+
+        var p1 = new MyPicture('http://fillmurray.com/300/300');
+        var p2 = new MyPicture('http://fillmurray.com/400/200');
+
+        p1.draw();
+        p2.draw();
+
+      });
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
+
+
+
+
+
