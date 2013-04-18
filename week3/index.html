@@ -1,218 +1,188 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <title>WDIM355 Client-Side Scripting &mdash; Week 3</title>
-        <!-- Slippy core file and dependencies -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-        <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
-        <script type="text/javascript" src="slippy/src/slippy.js"></script>
-        <!-- Slippy structural styles -->
-        <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
-        <!-- Syntax highlighting core file  -->
-        <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
-        <!-- Syntax highlighting brushes, remove those you don't need -->
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
-        <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
-        <!-- Syntax highlighting styles-->
-        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
-        <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>WDIM355 Client-Side Scripting &mdash; Week 3</title>
+    <!-- Slippy core file and dependencies -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+    <script type="text/javascript" src="slippy/src/slippy.js"></script>
+    <!-- Slippy structural styles -->
+    <link type="text/css" rel="stylesheet" href="slippy/src/slippy.css"/>
+    <!-- Syntax highlighting core file	-->
+    <script type="text/javascript" src="slippy/src/highlighter/shCore.js"></script>
+    <!-- Syntax highlighting brushes, remove those you don't need -->
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushBash.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
+    <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+    <!-- Syntax highlighting styles-->
+    <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
 
 
-		<!-- Common Styles -->
-		<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
-		<link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
-        
-        <style>
-            .highlight { background: yellow !important; }
-        </style>
-    </head>
-    <body>
-        <div class="slide title" data-layout="title">
-            <h1>WDIM355<br />Client-Side Scripting</h1>
-			<h2>Week 3</h2>
-        </div>
+    <!-- Common Styles -->
+    <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis+Light:regular&v1" rel="stylesheet" type="text/css" >
+    <link type="text/css" rel="stylesheet" href="styles/slippy-wdim.css" />
+    <style>
+      .highlight { background: yellow !important; }
+    </style>
+  </head>
+  <body>
+    <div class="slide title" data-layout="title">
+      <h1>WDIM355<br />Client-Side Scripting</h1>
+      <h2>Week 3</h2>
+    </div>
 
-        <div class="slide">
-            <h1>Homework</h1>
-    		<p>Turn in your homework by emailimg it to me at <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a> using the convention <var>lastnameFirstname_assignment2.zip</var>.</p>
-            <p>We'll take a look at Brian's implementation, as he emailed me first!</p>
-        </div>
+    <div class="slide">
+      <h1>Homework</h1>
+      <p>Turn in your homework to the Assignment 1 Dropbox on eCompanion.</p>
+    </div>
 
-		<div class="slide">
-			<h1>Weekly Happenings</h1>
-			<ul>
-				<li><a href="http://dailyjs.com">DailyJS is the blog to read</a>.</li>
-				<li>Anything else!?</li>
-			</ul>
-		</div>
-  
-		<div class="slide">
-			<h1>Weekly Happenings from Winter 2011</h1>
-			<ul>
-				<li><a href="https://github.com/ajaxorg/editor">ACE Editor Released</a>. (In-browser code editor that doesn't suck, based on Bespin)
-				<li>jQuery 1.5 RC released this week. (Final version will ship January 31st.)</li>
-				<li><a href="http://apple.com">Apple.com</a> changed their main nav to glass.</li>
-				<li>PSP2 was announced! Anybody want it?</li>
-				<li>Anything else!?</li>
-			</ul>
-		</div>
+    <div class="slide">
+      <h1>Weekly Happenings</h1>
+      <ul>
+        <li><a href="http://superherojs.com/">Superhero.js</a></li>
+        <li><a href="http://dailyjs.com">DailyJS is the blog to read</a>.</li>
+        <li><a href="http://www.2ality.com/2013/02/asm-js.html">asm.js: closing the gap between JavaScript and native</a></li>
+        <li><a href="http://css-tricks.com/using-flexbox/">Using Flexbox on CSS-Tricks</a></li>
+      </ul>
+    </div>
 
-		<div class="slide">
-			<h1>Hackathon: Image Gallery</h1>
-			<ul>
-				<li>Our first hackathon: <a href="inclass/gallery.html">Image Gallery (inclass/gallery.html)</a>.</li>
-				<li>You've got 30 minutes to work on this App with your pair. The instructions are in the script.</li>
-			</ul>
-		</div>
+    <div class="slide">
+      <h1>Weekly Happenings from Winter 2011</h1>
+      <ul>
+        <li><a href="https://github.com/ajaxorg/editor">ACE Editor Released</a>. (In-browser code editor that doesn't suck, based on Bespin)
+        <li>jQuery 1.5 RC released this week. (Final version will ship January 31st.)</li>
+        <li><a href="http://apple.com">Apple.com</a> changed their main nav to glass.</li>
+        <li>PSP2 was announced! Anybody want it?</li>
+      </ul>
+    </div>
 
-		<div class="slide">
-			<h1>Events</h1>
-			<ul>
-				<li>jQuery has extensive support for events beyond what we've played with, including the ability to bind multiple events, unbind events, and trigger custom events.</li>
-				<li>We can utilize the bind() and trigger() methods for these advanced uses.</li>
-				<li>You can use the optional <var>data</var> parameter of the bind method to pass along data into the event.data scope.</li>
-				<li>All jQuery objects can call any custom event.</li>
-				<li>Let's look at the <a href="inclass/events.html">Events script</a>.</li>
-			</ul>
-		</div>
+    <div class="slide">
+      <h1>Asynchronous JavaScript and XML</h1>
+      <ul>
+        <li>First off, what it stands for is a bit of a misnomer, which we'll see.</li>
+        <li>For the above reason, I'll be writing it as "Ajax", not all capitalized.</li>
+        <li>There's a lot of hype, <a href="http://marc.info/?l=php-general&amp;m=112198633625636&amp;w=2">but it's pretty basic</a>.</li>
+        <li>Let's see a barebones example in <a href="examples/ajax/ajax.html">examples/ajax/ajax.html</a>.
+      </ul>
+    </div>
 
+    <div class="slide">
+      <h1>JSONP&mdash;JSON with Padding!</h1>
+      <ul>
+        <li><a href="http://www.json.org/">JSON</a> is a data-interchange format that is actually valid JavaScript.</li>
+        <li>In order to get around Ajax domain limitations, <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">somebody came up with a great idea</a>.</li>
+        <li>JSONP (basically) generates a new <code>&lt;script /&gt;</code> tag, and loads a remote <code>src</code> url.</li>
+        <li>Based on the URL, the server then generates JSON and wraps it in a JavaScript function call.</li>
+        <li>When the script is loaded, it executes the function and we have access to the data.</li>
+        <li>Let's look at how we can <a href="examples/flickr.html">interact with Flickr</a> in this way.</li>
+      </ul>
+    </div>
 
-		<div class="slide">
-			<h1><a href="http://jqueryui.com/">jQuery UI</a></h1>
-			<ul>
-				<li>jQuery UI provides handy widgets like a Datepicker, Dialog, Progressbar and Tabs.</li>
-				<li>Additionally, it provides Drag and Drop, Resizing and Sorting.</li>
-				<li>There are 12 separate features. You'll have 30 minutes to implement a widget/interaction and then we'll quickly demo what we came up with. Pair up and I'll tell you what you get:
-					<ol>
-						<li><a href="http://jqueryui.com/demos/draggable">Draggable</a> &amp; <a href="http://jqueryui.com/demos/droppable">Droppable</a></li>
-						<li><a href="http://jqueryui.com/demos/resizable">Resizable</a></li>
-						<li><a href="http://jqueryui.com/demos/selectable">Selectable</a></li>
-						<li><a href="http://jqueryui.com/demos/sortable">Sortable</a></li>
-						<li><a href="http://jqueryui.com/demos/accordion">Accordion</a></li>
-						<li><a href="http://jqueryui.com/demos/autocomplete">Autocomplete</a></li>
-						<li><a href="http://jqueryui.com/demos/button">Button</a></li>
-						<li><a href="http://jqueryui.com/demos/datepicker">Datepicker</a></li>
-						<li><a href="http://jqueryui.com/demos/dialog">Dialog</a></li>
-						<li><a href="http://jqueryui.com/demos/progressbar">Progressbar</a></li>
-						<li><a href="http://jqueryui.com/demos/slider">Slider</a></li>
-						<li><a href="http://jqueryui.com/demos/tabs">Tabs</a></li>
-					</ol>
-				</li>
-			</ul>
-		</div>
+    <div class="slide">
+      <h1>Tagathon</h1>
+      <ul>
+        <li>Using <a href="examples/flickr.html">our Flickr example</a>, create an app that allows a user to search Flickr by tag and see the top 20 images.</li>
+        <li>Team up with your partner from the first hackathon.</li>
+        <li>Make sure the app fulfills these requirements:
+          <ol>
+            <li>The user types a Flickr tag into a text box and hits the submit button.</li>
+            <li>The top 20 images with that tag appear on the screen.</li>
+            <li>At any time, the user should be able to change the text box and re-submit to get an updated gallery.</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
 
-		<div class="slide">
-			<h1>Events</h1>
-			<ul>
-				<li>jQuery has extensive support for events beyond what we've played with, including the ability to bind multiple events, unbind events, and trigger custom events.</li>
-				<li>We can utilize the bind() and trigger() methods for these advanced uses.</li>
-				<li>You can use the optional <var>data</var> parameter of the bind method to pass along data into the event.data scope.</li>
-				<li>All jQuery objects can call any custom event.</li>
-				<li>Let's look at the <a href="inclass/events.html">Events script</a>.</li>
-			</ul>
-		</div>
+    <div class="slide">
+      <h1>Hackathon: Image Gallery</h1>
+      <ul>
+        <li>Our next hackathon: <a href="inclass/gallery.html">Image Gallery (inclass/gallery.html)</a>.</li>
+        <li>You've got 30 minutes to work on this App with your pair. The instructions are in the script.</li>
+      </ul>
+    </div>
 
-		<div class="slide">
-			<h1>JavaScript Best Practices</h1>
-			<ul>
-				<li>Google has released their <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">JavaScript Style Guide</a> and it's full of good advice!</li>
-				<li>We'll take a look at some of them, but you should become familiar with most of them.</li>
-			</ul>
-		</div>
-			
-		<div class="slide">
-			<h1>Always Use Semicolons</h1>
-			<pre class="brush: js">MyClass.prototype.myMethod = function() {
-  return 42;
-}  // No semicolon here.
-
-(function() {
-  // Some initialization code wrapped in a function to create a scope for locals.
-})();
-
-var x = {
-  'i': 1,
-  'j': 2
-}  // No semicolon here.
-
-[normalVersion, ffVersion][isIE]();
-
-var THINGS_TO_EAT = [apples, oysters, sprayOnCheese]  // No semicolon here.
-
--1 == resultOfOperation() || die();</pre>
-		</div>
-		
-		<div class="slide">
-			<h1>Do Not Use Multiline String Literals</h1>
-			<p>The whitespace at the beginning of each line can't be safely stripped at compile time; whitespace after the slash will result in tricky errors; and while most script engines support this, it is not part of ECMAScript.</p>
-			<pre class="brush: js">var myString = 'A rather long string, an error message \
-actually that just keeps going and going -- an error \
-message to make the Energizer bunny blush (right through \
-those Schwarzenegger shades)! Where was I? Oh yes, \
-you\'ve got an error and all the extraneous whitespace is \
-just gravy.  Have a nice day.';</pre>
-		</div>
-
-		<div class="slide">
-			<h1>Don't use IE Conditional Compilation</h1>
-			<p>They are often unnecessary and can break tools that are used to minify your JavaScript.</p>
-			<pre class="brush: js">var f = function () {
-	/*@cc_on if (@_jscript) { return 2* @*/  3; /*@ } @*/
-};</pre>
-		</div>
-
-		<div class="slide">
-			<h1>JavaScript Style Rules</h1>
-			<ul>
-				<li>In general, style names in this fashion:
-					<ul>
-						<li><code>functionNamesLikeThis</code></li>
-						<li><code>variableNamesLikeThis</code></li>
-						<li><code>ClassNamesLikeThis</code> (e.g., Objects)</li>
-						<li><code>methodNamesLikeThis</code></li>
-						<li><code>SYMBOLIC_CONSTANTS_LIKE_THIS</code></li>
-					</ul>
-				</li>
-				<li>Prefer <code>'</code> over <code>"</code>.</li>
-				<li>Most importantly: <em>be consistent</em>.</li>
-			</ul>
-		</div>
+    <div class="slide">
+      <h1>Events</h1>
+      <ul>
+        <li>jQuery has extensive support for events beyond what we've played with, including the ability to bind multiple events, unbind events, and trigger custom events.</li>
+        <li>We can utilize the bind() and trigger() methods for these advanced uses.</li>
+        <li>You can use the optional <var>data</var> parameter of the bind method to pass along data into the event.data scope.</li>
+        <li>All jQuery objects can call any custom event.</li>
+        <li>Let's look at the <a href="inclass/events.html">Events script</a>.</li>
+      </ul>
+    </div>
 
 
-        <div class="slide title">
-    		<h1>The End</h1>
-			<h2>The <a href="homework.html">Homework</a></h2>
-		</div>
+    <div class="slide">
+      <h1><a href="http://jqueryui.com/">jQuery UI</a></h1>
+      <ul>
+        <li>jQuery UI provides handy widgets like a Datepicker, Dialog, Progressbar and Tabs.</li>
+        <li>Additionally, it provides Drag and Drop, Resizing and Sorting.</li>
+        <li>There are 12 separate features. You'll have 30 minutes to implement a widget/interaction and then we'll quickly demo what we came up with. Pair up and I'll tell you what you get:
+          <ol>
+            <li><a href="http://jqueryui.com/demos/draggable">Draggable</a> &amp; <a href="http://jqueryui.com/demos/droppable">Droppable</a></li>
+            <li><a href="http://jqueryui.com/demos/resizable">Resizable</a></li>
+            <li><a href="http://jqueryui.com/demos/selectable">Selectable</a></li>
+            <li><a href="http://jqueryui.com/demos/sortable">Sortable</a></li>
+            <li><a href="http://jqueryui.com/demos/accordion">Accordion</a></li>
+            <li><a href="http://jqueryui.com/demos/autocomplete">Autocomplete</a></li>
+            <li><a href="http://jqueryui.com/demos/button">Button</a></li>
+            <li><a href="http://jqueryui.com/demos/datepicker">Datepicker</a></li>
+            <li><a href="http://jqueryui.com/demos/dialog">Dialog</a></li>
+            <li><a href="http://jqueryui.com/demos/progressbar">Progressbar</a></li>
+            <li><a href="http://jqueryui.com/demos/slider">Slider</a></li>
+            <li><a href="http://jqueryui.com/demos/tabs">Tabs</a></li>
+          </ol>
+        </li>
+      </ul>
+    </div>
 
-        <div class="layout" data-name="title">
-            <content></content>
-            <div class="footer">
-                <span class="left">Peter Wooley</span>
-                <span class="right">WDIM355A</span>
-                <span class="left"><a href="http://twitter.com/peterwooley">@peterwooley</a></span>
-                <span class="right"><a href="http://wdim355.heroku.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim355">on GitHub</a>)</span>
-                <hr class="defloat" />
-            </div>
-        </div>
+    <div class="slide">
+    	<h1>Next Week: Backbone.js</h1>
+    	<ul>
+    		<li>
+    			<a href="http://backbonejs.org/">Backbone.js Docs</a>
+    		</li>
+    		<li>
+          <a href="http://javascriptissexy.com/learn-backbone-js-completely/">Learn Backbone.js Completely</a>
+    		</li>
+    	</ul>
+    </div>
 
-        <div class="layout nofooter" data-name="default">
-            <content></content>
-        </div>
-    
-		<!-- Common Scripts -->
-		<script src="scripts/jquery.noisy.min.js"></script>
-		<script src="scripts/index.js"></script>
-        
-        <script>
-            $("#jqueryTraversal").submit(function() {
-                var val = $("#jQueryQuery").val();
-                $.alert("$(\"" + val + "\").toggleClass( \"highlight\" );");
-                $(val).toggleClass("highlight");
-                return false;
-            });
-        </script>
-	</body>
+    <div class="slide title">
+      <h1>The End</h1>
+      <h2>The <a href="homework.html">Homework</a></h2>
+    </div>
+
+    <div class="layout" data-name="title">
+      <content></content>
+      <div class="footer">
+        <span class="left">Peter Wooley</span>
+        <span class="right">WDIM355A</span>
+        <span class="left"><a href="http://twitter.com/peterwooley">@peterwooley</a></span>
+        <span class="right"><a href="http://wdim355.heroku.com">Notes online</a> (and <a href="https://github.com/peterwooley/wdim355">on GitHub</a>)</span>
+        <hr class="defloat" />
+      </div>
+    </div>
+
+    <div class="layout nofooter" data-name="default">
+      <content></content>
+    </div>
+
+    <!-- Common Scripts -->
+    <script src="scripts/jquery.noisy.min.js"></script>
+    <script src="scripts/index.js"></script>
+
+    <script>
+      $("#jqueryTraversal").submit(function() {
+        var val = $("#jQueryQuery").val();
+        $.alert("$(\"" + val + "\").toggleClass( \"highlight\" );");
+        $(val).toggleClass("highlight");
+        return false;
+      });
+    </script>
+  </body>
 </html>
