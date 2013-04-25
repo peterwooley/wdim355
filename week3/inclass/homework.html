@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Assignment 1</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    function ColorSwitcher() {
+      var self = this;
+      this.form = $("<form>FG: <input class='fg' /> BG: <input class='bg' /></form>").appendTo("body");
+      this.form.find("input").keyup(function() {
+        if($(this).hasClass("fg")) {
+          self.form.css("color", $(this).val());
+        } else {
+          self.form.css("background-color", $(this).val());
+        }
+      });
+    }
+    
+    $(function() {
+      new ColorSwitcher();
+      new ColorSwitcher();
+      new ColorSwitcher();
+      new ColorSwitcher();
+      new ColorSwitcher();
+      new ColorSwitcher();
+      new ColorSwitcher();
+      new ColorSwitcher();
+    });
+  </script>
+</head>
+<body>
+	
+</body>
+</html>

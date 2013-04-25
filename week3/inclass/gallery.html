@@ -27,6 +27,25 @@
 			// 4. Write your next/previous event handlers to show the
 			//    next/previous image and hide the others. (This is the hard part)
 			// 5. Extra: Add some animation!
+      $(function() {
+        var $gallery = $("#gallery");
+        $gallery.find("li").hide().end().find("li:first").show();
+        $gallery.css("list-style", "none");
+        $("<button>")
+          .text("Previous")
+          .click(function() {
+            if($gallery.find("li:visible").prev("li").size())
+              $gallery.find("li:visible").hide().prev().show();
+          })
+          .appendTo($gallery);
+        $("<button>")
+          .click(function() {
+            if($gallery.find("li:visible").next("li").size())
+              $gallery.find("li:visible").hide().next().show();
+          })
+          .text("Next")
+          .appendTo($gallery);
+      });
 			
 		</script>
 	</head>
@@ -35,10 +54,10 @@
 		
 		<div id="content">
 			<ul id="gallery">
-				<li><img src="" alt="" /></li>
-				<li><img src="" alt="" /></li>
-				<li><img src="" alt="" /></li>
-				<li><img src="" alt="" /></li>
+				<li><img src="http://fillmurray.com/400/200" alt="" /></li>
+				<li><img src="http://fillmurray.com/g/400/200" alt="" /></li>
+				<li><img src="http://placekitten.com/400/200" alt="" /></li>
+				<li><img src="http://placekitten.com/g/400/200" alt="" /></li>
 			</ul>
 		</div>
 	</body>

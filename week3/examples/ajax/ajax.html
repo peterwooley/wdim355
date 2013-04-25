@@ -11,55 +11,55 @@
       ////////////////////////////////////////////////////////
     
       // Create an object to make an Ajax request.
-      function createRequestObject() {
-        var ro;
-        var browser = navigator.appName;
-        if(browser == "Microsoft Internet Explorer"){
-          ro = new ActiveXObject("Microsoft.XMLHTTP");
-        }else{
-          ro = new XMLHttpRequest();
-        }
-        return ro;
-      }
+      //function createRequestObject() {
+      //  var ro;
+      //  var browser = navigator.appName;
+      //  if(browser == "Microsoft Internet Explorer"){
+      //    ro = new ActiveXObject("Microsoft.XMLHTTP");
+      //  }else{
+      //    ro = new XMLHttpRequest();
+      //  }
+      //  return ro;
+      //}
 
-      var http = createRequestObject();
+      //var http = createRequestObject();
 
-      // Using the Ajax object, send a request.
-      function sndReq(action) {
-        http.open('get', action + '.txt');
-        http.onreadystatechange = handleResponse;
-        http.send(null);
-      }
+      //// Using the Ajax object, send a request.
+      //function sndReq(action) {
+      //  http.open('get', action + '.txt');
+      //  http.onreadystatechange = handleResponse;
+      //  http.send(null);
+      //}
 
-      // When the Ajax request receieves a response, handle it.
-      function handleResponse() {
-        if(http.readyState == 4){
-          var response = http.responseText;
-          document.getElementById("result").innerHTML = response;
-        }
-      }
-      
-      
-      window.onload = function() {
-        document.getElementById("foo").onclick = function() {
-          sndReq("foo");   
-        }
-        document.getElementById("bar").onclick = function() {
-          sndReq("bar");   
-        }
-      }
+      //// When the Ajax request receieves a response, handle it.
+      //function handleResponse() {
+      //  if(http.readyState == 4){
+      //    var response = http.responseText;
+      //    document.getElementById("result").innerHTML = response;
+      //  }
+      //}
+      //
+      //
+      //window.onload = function() {
+      //  document.getElementById("foo").onclick = function() {
+      //    sndReq("foo");   
+      //  }
+      //  document.getElementById("bar").onclick = function() {
+      //    sndReq("bar");   
+      //  }
+      //}
       
       ////////////////////
       // The jQuery Way //
       ////////////////////
       
-      //$(function() {
-      //  $("#foo, #bar").click(function() {
-      //    $.get(this.id+".txt").then(function(val) {
-      //      $("#result").text(val);
-      //    });
-      //  });
-      //});
+      $(function() {
+        $("#foo, #bar").click(function() {
+          $.get(this.id+".txt").then(function(val) {
+            $("#result").text(val);
+          });
+        });
+      });
       
     </script>
   </head>
@@ -73,3 +73,13 @@
     <p>(<a href="https://code.google.com/p/chromium/issues/detail?id=40787">This example doesn't work in Chrome.</a>)</p>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+

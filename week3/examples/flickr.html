@@ -6,24 +6,52 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script>
 			$(function() {
-				$.getJSON(
-					"http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-					{
-						tags: "cat",
-						tagmode: "any",
-						format: "json"
-					},
-					function(data) {
-						$.each(data.items, function(i,item){
-							$("<img/>").attr("src", item.media.m).appendTo("#images");
-							if ( i == 20 ) return false;
-						});
-					}
-				);
+        $("form").submit(function(e) {
+          e.preventDefault();
+
+          var search = $("input:first").val();
+
+
+          $.getJSON(
+            "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+            {
+              tags: search,
+              tagmode: "any",
+              format: "json"
+            },
+            function(data) {
+              $("#images").empty();
+              $.each(data.items, function(i,item){
+                $("<img/>").attr("src", item.media.m).appendTo("#images");
+                if ( i == 20 ) return false;
+              });
+            }
+          );
+        });
+
 			});
 		</script>
 	</head>
 	<body>
+    <form>
+      <input placeholder="Search Flickr Tags!" />
+      <input type="submit">
+    </form>
 		<div id="images"></div>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

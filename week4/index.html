@@ -16,6 +16,7 @@
         <script type="text/javascript" src="slippy/src/highlighter/shBrushCss.js"></script>
         <script type="text/javascript" src="slippy/src/highlighter/shBrushJScript.js"></script>
         <script type="text/javascript" src="slippy/src/highlighter/shBrushXml.js"></script>
+        <script type="text/javascript" src="slippy/src/highlighter/shBrushCoffeeScript.js"></script>
         <!-- Syntax highlighting styles-->
         <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shCore.css"/>
         <link type="text/css" rel="stylesheet" href="slippy/src/highlighter/shThemeRDark.css"/>
@@ -35,28 +36,6 @@
 			<h2>Week 4</h2>
         </div>
 
-        <div class="slide">
-            <h1>Homework</h1>
-    		<p>Turn in your homework by emailimg it to me at <a href="mailto:pwooley@aii.edu">pwooley@aii.edu</a> using the convention <var>lastnameFirstname_assignment3.zip</var>.</p>
-        </div>
-
-		<div class="slide">
-			<h1>Weekly Happenings</h1>
-			<ul>
-
-			</ul>
-		</div>
-        
-        <div class="slide">
-            <h1><code>$().animate()</code> with Positioning</h1>
-            <p>We should play with some animation. (<a href="inclass/animate.html">inclass/animate.html</a>)</p>
-        </div>
-        
-		<div class="slide title">
-			<h1>Hackathon</h1>
-            <h2><a href="inclass/gallery.html">Image Gallery</a></h2>
-		</div>
-
 		<div class="slide">
 			<h1>Events</h1>
 			<ul>
@@ -67,76 +46,76 @@
 				<li>Let's look at the <a href="inclass/events.html">Events script</a>.</li>
 			</ul>
 		</div>
-
-        <div class="slide">
-        	<h1>JavaScript Best Practices</h1>
-			<ul>
-				<li>Google has released their <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">JavaScript Style Guide</a> and it's full of good advice!</li>
-				<li>We'll take a look at some of them, but you should become familiar with most of them.</li>
-			</ul>
-		</div>
-			
-		<div class="slide">
-			<h1>Always Use Semicolons</h1>
-			<pre class="brush: js">MyClass.prototype.myMethod = function() {
-  return 42;
-}  // No semicolon here.
-
-(function() {
-  // Some initialization code wrapped in a function to create a scope for locals.
-})();
-
-var x = {
-  'i': 1,
-  'j': 2
-}  // No semicolon here.
-
-[normalVersion, ffVersion][isIE]();
-
-var THINGS_TO_EAT = [apples, oysters, sprayOnCheese]  // No semicolon here.
-
--1 == resultOfOperation() || die();</pre>
-		</div>
 		
 		<div class="slide">
-			<h1>Do Not Use Multiline String Literals</h1>
-			<p>The whitespace at the beginning of each line can't be safely stripped at compile time; whitespace after the slash will result in tricky errors; and while most script engines support this, it is not part of ECMAScript.</p>
-			<pre class="brush: js">var myString = 'A rather long string, an error message \
-actually that just keeps going and going -- an error \
-message to make the Energizer bunny blush (right through \
-those Schwarzenegger shades)! Where was I? Oh yes, \
-you\'ve got an error and all the extraneous whitespace is \
-just gravy.  Have a nice day.';</pre>
+			<h1>Eventathon</h1>
+			<p>Team up with a partner of your choice and complete the hackathon in <a href="inclass/eventathon.html">inclass/eventathon.html</a>.</p>
 		</div>
 
 		<div class="slide">
-			<h1>Don't use IE Conditional Compilation</h1>
-			<p>They are often unnecessary and can break tools that are used to minify your JavaScript.</p>
-			<pre class="brush: js">var f = function () {
-	/*@cc_on if (@_jscript) { return 2* @*/  3; /*@ } @*/
-};</pre>
-		</div>
-        
-        <div class="slide">
-			<h1>JavaScript Style Rules</h1>
-			<ul>
-				<li>In general, style names in this fashion:
-					<ul>
-						<li><code>functionNamesLikeThis</code></li>
-						<li><code>variableNamesLikeThis</code></li>
-						<li><code>ClassNamesLikeThis</code> (e.g., Objects)</li>
-						<li><code>methodNamesLikeThis</code></li>
-						<li><code>SYMBOLIC_CONSTANTS_LIKE_THIS</code></li>
-					</ul>
-				</li>
-				<li>Prefer <code>'</code> over <code>"</code>.</li>
-				<li>Most importantly: <em>be consistent</em>.</li>
-			</ul>
+			<h1>How I Debug</h1>
+			<ol>
+				<li>Check for errors in the browser.</li>
+				<li>Step through the code in the browser's debugger.</li>
+				<li>Add console.error() messages until I see where the code stops working.</li>
+			</ol>
+			<p>Let's <a href="examples/debugging.html">look at an example that highlights each of these problems</a>.</li>
 		</div>
 
+		<div class="slide">
+			<h1>Extending jQuery</h1>
+			<p>jQuery Plugins are delightfully simple to create.</p>
+			<p>You can learn all the ins and outs in <a href="http://docs.jquery.com/Plugins/Authoring">jQuery's Plugin Documentation.</a></p>
+			<pre class="brush: js">// Create our jQuery Gallerize Plugin
+(function($){
+	$.fn.gallerize = function() {
+		$.each(this, function(i, item) {
+			var $item = $(item);	
+			$item.find("li").hide().end().find(":first").show();
+
+			$item.click(function() {
+				if ($item.find("li:visible").next().length) {
+					$item.find("li:visible").hide().next().show();
+				} else {
+					$item.find("li").hide().end().find(":first").show();
+				}
+			});
+		});
+		
+		return this;
+	};
+}(jQuery));</pre>
+			<p>Let's <a href="inclass/plugin/index.html">use it and dissect what it's doing.</a></p>
+		</div>
+
+		<div class="slide">
+			<h1>Pluginathon</h1>
+			<p>Team up with a partner of your choice and complete the plugin hackathon in <a href="inclass/pluginathon.html">inclass/pluginathon</a>.</p>
+		</div>
+
+    <div class="slide">
+      <h1><a href="http://jqueryui.com/">jQuery UI</a></h1>
+      <ul>
+        <li>jQuery UI provides handy widgets like a Datepicker, Dialog, Progressbar and Tabs.</li>
+        <li>Additionally, it provides Drag and Drop, Resizing and Sorting functionality.</li>
+        <li>There are 8 interesting features. You'll have 30 minutes to implement a cool widget interaction and then we'll quickly demo what we came up with. Pair up and I'll tell you what you get:
+          <ol>
+            <li><a href="http://jqueryui.com/demos/sortable">Sortable</a></li>
+            <li><a href="http://jqueryui.com/demos/accordion">Accordion</a></li>
+            <li><a href="http://jqueryui.com/demos/autocomplete">Autocomplete</a></li>
+            <li><a href="http://jqueryui.com/demos/datepicker">Datepicker</a></li>
+            <li><a href="http://jqueryui.com/demos/dialog">Dialog</a></li>
+            <li><a href="http://jqueryui.com/demos/progressbar">Progressbar</a></li>
+            <li><a href="http://jqueryui.com/demos/slider">Slider</a></li>
+            <li><a href="http://jqueryui.com/demos/tabs">Tabs</a></li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+
         <div class="slide title">
-    		<h1>The End</h1>
-			<h2>The <a href="homework.html">Homework</a></h2>
+    		<h1>All Done!</h1>
+			<h2><a href="homework.html">Homework!</a></h2>
 		</div>
 
         <div class="layout" data-name="title">
@@ -157,14 +136,5 @@ just gravy.  Have a nice day.';</pre>
 		<!-- Common Scripts -->
 		<script src="scripts/jquery.noisy.min.js"></script>
 		<script src="scripts/index.js"></script>
-        
-        <script>
-            $("#jqueryTraversal").submit(function() {
-                var val = $("#jQueryQuery").val();
-                $.alert("$(\"" + val + "\").toggleClass( \"highlight\" );");
-                $(val).toggleClass("highlight");
-                return false;
-            });
-        </script>
 	</body>
 </html>
