@@ -41,9 +41,7 @@
           // (that is, "cw-fired" and "mmw-fired")
           // and update the number shown in self.div
           // *** ONLY ADD CODE BELOW ***
-
-
-
+          $(document).on("cw-fired mmw-fired",function(){self.div.text(++eventCount)})
           // *** ONLY ADD CODE ABOVE ***
         }
 

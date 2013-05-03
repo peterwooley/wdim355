@@ -7,29 +7,36 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
       // Invalid Syntax throws an error I can see in the Error Console.
-      var test = "I'm a string that has no end.
+      var test = "I'm a string that has no end."
 
       // A timing problem that reveals itself when I step through in the debugger.
-      var $div = $("<div>"),
-        $body = $("body"),
-        text = "I love when I forget to do this."
+      $(function() {
+        var $div = $("<div>"),
+          $body = $("body"),
+          text = "I love when I forget to do this."
 
-      $div
-        .text(text)
-        .appendTo($body);
+        $div
+          .text(text)
+          .appendTo($body);
+      });
 
       // I want the foo function to create a div, then call the bar
       // function which will also create a div. Right now, nothing is
       // happening. I'm at a loss, so I add console.error().
       $(function() {
+        console.error("Start");
         var foo = function() {
+          console.log("Start foo()");
           $("<div>").text("Greetings from Foo!").appendTo("body");
-          bar;
+          bar();
         }
 
         var bar = function() {
+          console.log("Start bar()");
           $("<div>").text("Greetings from Bar!").appendTo("body");
         }
+
+        foo();
       });
     </script>
   </head>

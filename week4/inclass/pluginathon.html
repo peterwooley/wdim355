@@ -13,6 +13,13 @@
 				$.fn.randomize = function() {
 					// Loop over all elements in the collection (`this`),
 					// then set a random background color.
+          var rand = function() {
+            return Math.round(Math.random() * 255);
+          }
+
+          $.each(this, function(i, item) {
+            $(item).css("background", "rgb("+rand()+","+rand()+","+rand()+")");
+          });
 					
 					// Make sure to always return this; as it allows for jQuery's Chainability!
 					return this;

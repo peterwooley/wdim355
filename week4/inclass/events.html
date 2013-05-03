@@ -11,8 +11,25 @@
             // Binding multiple events
             
             // Triggering events
+            $(function() {
+              $("input").focus();
+              
+              // Passing additional data
+              $("input").keydown({"this": this}, function(e) {
+                if(e.keyCode === 13) {
+                  $(this).trigger('karate-explosion');
+                }
+              });
+
+              $("input").on("karate-explosion", function(e) {
+                console.log(e);
+              });
+              $("input").on("karate-explosion", function(e) {
+                console.log(e);
+              });
+
+            });
             
-            // Passing additional data
             
             // Binding to and triggering custom events
             
@@ -20,6 +37,7 @@
 		</script>
 	</head>
 	<body>
+    <input />
 	</body>
 </html>
 
